@@ -7,6 +7,8 @@ import __main__ as main
 main.__file__ = "main_file"
 
 app = Dash(__name__, use_pages=True)
+server = app.server
+
 
 
 header_style = {
