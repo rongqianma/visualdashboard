@@ -44,7 +44,7 @@ html.Div(
                       'color': 'white'}
             )
         ) 
-        for page in dash.page_registry.values()
+        for page in sorted(dash.page_registry.values(), key=lambda x: x['name'], reverse = True)
     ], 
     style={
         'display': 'flex',
