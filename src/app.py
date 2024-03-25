@@ -23,7 +23,7 @@ header_style = {
 
 
 
-app.layout = html.Div([
+layout = html.Div([
     html.Div(className='row',
         style={'background-color': '#282c34', 'padding': '10px'},  # Background color and padding adjusted for a clean look
         children=[
