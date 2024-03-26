@@ -74,6 +74,7 @@ years = list(range(2008, 2024))
 layout = html.Div(
     style={'backgroundColor': '#1E1E1E'}, 
     children=[
+
         
     html.Div('<br>', style={'color':'#1E1E1E'}),
         
@@ -82,7 +83,9 @@ layout = html.Div(
     children=[
         html.Div(className='twelve columns', 
             children=[
+
                 html.Div([
+                    
                     html.Div(id='slider-tooltip', style={'color': 'white',
                                                         'font-weight': 'bold', 'text-align': 'center'}),
                     
@@ -260,13 +263,12 @@ layout = html.Div(
 
 
 
-
 # Callback to update tooltip
 @callback(
-    dash.dependencies.Output('slider-tooltip', 'children'),
-    [dash.dependencies.Input('year-range-slider', 'value')]
+    Output('slider-tooltip', 'children'),
+    [Input('year-range-slider', 'value')]
 )
-def update_tooltip(value):
+def update_tooltip(value = None):
     tooltip_style = {
         'color': 'white',
         'font-weight': 'bold',
