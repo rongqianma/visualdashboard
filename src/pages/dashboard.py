@@ -211,13 +211,55 @@ layout = html.Div(
                     ])])
         ]),
 
-
+    html.Div('<br>', style={'color':'#1E1E1E'}),
     # Table section
     html.Div(className='row', 
         children=[
             dash_table.DataTable(
                 data=[],
                 columns=[{'name': col, 'id': col} for col in table_columns],
+                tooltip_header={
+                    'Keyword': {'value': '''Keyword: Top 30     
+                    The data visualization keyword is identified from article abstracts. OpenAI GPT 3.5 was used in order to identify relevant keywords.''', 'type': 'markdown'},
+                    
+                    'Significance score': {'value': '''Significance score: [0,1]     
+                    The significance score is computed using OpenAI GPT 4. Higher the value, the more relevant it is in the context of data visualization.''', 'type': 'markdown'},
+
+                    'Rank': {'value': '''Rank: [1,30]    
+                    Computed based on a keyword\'s significance score and its occurrence across all journals. If two keywords have the same significance score, the keyword that occurs more frequently has a lower rank.''', 'type': 'markdown'}
+                    ,
+
+                    'DHQ': {'value': '''DHQ:     
+                    This signifies the number of times a specific keyword occurred in DHQ in the selected year range.''', 'type': 'markdown'},
+
+                    'JCA': {'value': '''JCA:     
+                    This signifies the number of times a specific keyword occurred in JCA in the selected year range.''', 'type': 'markdown'},
+
+                    'JOCCH': {'value': '''JOCCH:     
+                    This signifies the number of times a specific keyword occurred in JOCCH in the selected year range.''', 'type': 'markdown'}}
+                ,
+
+                # Style headers with a dotted underline to indicate a tooltip
+                style_header_conditional=[{
+                    'if': {'column_id': col},
+                    'textDecoration': 'underline',
+                    'textDecorationStyle': 'dotted',
+                } for col in table_columns],
+
+                # Overflow into ellipsis
+                style_cell={
+                    'overflow': 'hidden',
+                    'textOverflow': 'ellipsis',
+                    'maxWidth': 0,
+                    'textAlign': 'center',  # Center align cell content
+                    'fontSize': '14px',
+                    'fontFamily': 'Arial, sans-serif',
+                    'padding': '8px',
+                    'color': '#FFFFFF',
+                    'backgroundColor': '#333333',  # Cell background color
+                },
+                tooltip_delay=0,
+                tooltip_duration=None,
                 page_size=11,
                 style_table={
                     'overflowX': 'auto',
@@ -237,14 +279,6 @@ layout = html.Div(
                     'height': 'auto',
                     'border': '1px solid #FFFFFF',
                     'text-align': 'center',  # Center align data cells
-                },
-                style_cell={
-                    'textAlign': 'center',  # Center align cell content
-                    'fontSize': '14px',
-                    'fontFamily': 'Arial, sans-serif',
-                    'padding': '8px',
-                    'color': '#FFFFFF',
-                    'backgroundColor': '#333333',  # Cell background color
                 },
                 id='my-datatable'
             ),
