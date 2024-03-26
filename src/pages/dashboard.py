@@ -5,6 +5,8 @@ import pandas as pd
 import dash
 import plotly.express as px
 import dash_bootstrap_components as dbc
+import dash_mantine_components as dmc
+
 
 dash.register_page(__name__)
 
@@ -119,30 +121,38 @@ layout = html.Div(
             className='four columns',
             style={**drop_down_div, 'width': '58%'},  # Adjust width here
             children=[
-                dcc.Dropdown(
+                dmc.MultiSelect(
                     id='journal-dropdown',
-                    options=[
+                    data=[
                         {'label': 'DHQ', 'value': 'DHQ'},
                         {'label': 'JCA', 'value': 'JCA'},
                         {'label': 'JOCCH', 'value': 'JOCCH'}
                     ],
-                    multi=True,
+                    clearable=True,
+                    searchable=True,
+                    nothingFound="No options found",
+                    #multi=True,
                     placeholder="Select Humanities Journal",
-                    style={**drop_down, 'margin-bottom' : '5px', 'margin-up' : '5px'})]
+                    style={'margin-bottom' : '5px', 'margin-up' : '5px',
+                          })]
         ),
         
         html.Div(
             className='four columns',
             style={**drop_down_div, 'width': '58%'},  # Adjust width here
             children=[
-                dcc.Dropdown(
+                dmc.MultiSelect(
                     id='keyword-dropdown',
-                    options=[
+                    data=[
                         {'label': keyword, 'value': keyword} for keyword in unique_keywords
                     ],
-                    multi=True,
+                    clearable=True,
+                    searchable=True,
+                    nothingFound="No options found",
+
+                    #multi=True,
                     placeholder="Select Data Visualization Concept",
-                    style={**drop_down, 'margin-bottom' : '5px'})]),
+                    style={'margin-bottom' : '5px'})]),
             
 
         
