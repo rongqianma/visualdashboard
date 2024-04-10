@@ -13,19 +13,23 @@ server = app.server
 
 header_style = {
                 'textAlign': 'center',
-                'color': '#4a90e2',  # Blue color
-                'fontSize': '36px',  # Larger font size
+                #'color': '#4a90e2',  # Blue color
+                'color': 'white',  # Blue color
+
+                'fontSize': '24px',  # Larger font size
                 'fontFamily': 'Arial, sans-serif',  # Elegant font family
                 'fontWeight': 'bold',  # Bold text
                 'letterSpacing': '1px',  # Spacing between letters
-                'marginBottom': '20px',  # Add bottom margin for spacing
+                'marginBottom': '10px',  # Add bottom margin for spacing
+                'marginTop': '10px',  # Add bottom margin for spacing
+
             }
 
 
 
 app.layout = html.Div([
     html.Div(className='row',
-        style={'background-color': '#282c34', 'padding': '10px'},  # Background color and padding adjusted for a clean look
+        style={'background-color': '#2b2b2b', 'padding': '5px'},  # Background color and padding adjusted for a clean look
         children=[
             html.Div(className='twelve columns',
                 style = {'textAlign': 'center'},
@@ -40,7 +44,12 @@ html.Div(
             dcc.Link(
                 f"{page['name']}",
                 href=page["relative_path"],
-                style={**header_style, 'text-decoration': 'none', 'margin-right': '20px', 'font-size': '18px',
+                style={'textAlign': 'center',
+                'fontFamily': 'Arial, sans-serif',  # Elegant font family
+                'fontWeight': 'bold',  # Bold text
+                'letterSpacing': '1px',  # Spacing between letters
+                'marginBottom': '20px', 
+                       'text-decoration': 'none', 'margin-right': '20px', 'font-size': '18px',
                       'color': 'white'}
             )
         ) 
@@ -51,8 +60,10 @@ html.Div(
         'flexWrap': 'wrap',
         'background-color': '#282c34',
         'color': 'white',
-        'padding': '10px',
-                'justify-content': 'center',  # Center align the links
+        'padding-bottom': '10px',
+        'padding-top': '10px',
+
+        'justify-content': 'center',  # Center align the links
 
     }
 )
