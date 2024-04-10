@@ -1,7 +1,6 @@
 import dash
 #from dash import html
-import dash_html_components as html
-
+from dash import html
 
 dash.register_page(__name__, path='/')
 
