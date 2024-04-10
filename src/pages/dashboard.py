@@ -11,11 +11,16 @@ import dash_mantine_components as dmc
 dash.register_page(__name__)
 
 
-
+keywords_to_exclude = []  # Add your keywords here
 # Read data from CSV files
 df_1 = pd.read_csv("viz_1.csv").query("Journal != 'Total'")
+df_1 = df_1[~df_1["Keyword"].isin(keywords_to_exclude)]
+
 df_2 = pd.read_csv("updated_viz_2.csv")
+df_2 = df_2[~df_2["Keyword"].isin(keywords_to_exclude)]
+
 df_3 = pd.read_csv("viz_table.csv")
+df_3 = df_3[~df_3["Keyword"].isin(keywords_to_exclude)]
 
 # Calculate total yearly and proportion of articles with keyword
 df_2["yearly_total"] = df_2["DHQ_yearly_total"] + df_2["JCA_yearly_total"] + df_2["JOOCH_yearly_total"]
@@ -43,14 +48,12 @@ journal_keyword_dict = {'JCA' : '# of articles keyword DHQ',
 
 distinct_colors = [
     '#FF5733', '#FFC300', '#FFA500', '#008000', '#008080',  # Reds, Yellows, Gold, Green, Teal
-    '#0000FF', '#800080', '#FF00FF', '#808080', '#000000',  # Blue, Purple, Magenta, Gray, Black
-    '#00FF00', '#00FFFF', '#00008B', '#6A5ACD', '#FF1493',  # Lime, Cyan, Dark Blue, Slate Blue, Deep Pink
-    '#FF69B4', '#FF6347', '#FFA07A', '#4682B4', '#556B2F',  # Hot Pink, Tomato, Light Salmon, Steel Blue, Dark Olive Green
-    '#8A2BE2', '#8B008B', '#000080', '#4B0082', '#7FFF00',  # Blue Violet, Dark Magenta, Navy, Indigo, Chartreuse
-    '#FF4500', '#00BFFF', '#00FA9A', '#6495ED', '#B22222'   # Orange Red, Deep Sky Blue, Medium Spring Green, Medium Purple, Fire Brick
+    '#0000FF', 'lightgreen', '#FF00FF', '#808080', '#000000',  # Blue, Purple, Magenta, Gray, Black
+    '#00FF00', '#00FFFF', 'white', '#6A5ACD', 'darkred',  # Lime, Cyan, Dark Blue, Slate Blue, Deep Pink
+    '#FF69B4', 'red', 'yellow', '#4682B4', '#556B2F',  # Hot Pink, Tomato, Light Salmon, Steel Blue, Dark Olive Green
+    '#8A2BE2', '#8B008B', '#000080', '#4B0082', 'lightblue',  # Blue Violet, Dark Magenta, Navy, Indigo, Chartreuse
+    'lightpink', '#00BFFF', '#00FA9A', '#6495ED', '#B22222'   # Orange Red, Deep Sky Blue, Medium Spring Green, Medium Purple, Fire Brick
 ]
-
-
 
 df_4 = df_2[["Year","DHQ_yearly_total", "JCA_yearly_total", "JOOCH_yearly_total", "yearly_total"]].drop_duplicates()
 df_4.columns = ["Year", "DHQ", "JCA", "JOCCH", "Total"]
@@ -67,61 +70,84 @@ header_style = {'textAlign': 'center',
                 'marginBottom': '20px'}
 
 custom_font = {'fontFamily': 'Arial, sans-serif'}
-drop_down_div = {'textAlign': 'center', 'margin': 'auto', 'color' : '#4a90e2'}
+drop_down_div = {#'textAlign': 'center', 
+    'margin': 'auto', 'fontcolor' : 'red', 
+                 'backgroundColor': '#1E1E1E',  **custom_font}
+
+
 drop_down = {'margin': 'auto','backgroundColor': '#1E1E1E', 
                                'color': '#4a90e2', **custom_font, 'padding-up':'5px'}
 
-years = list(range(2008, 2024))
 
 layout = html.Div(
     style={'backgroundColor': '#1E1E1E'}, 
     children=[
 
         
-    html.Div('<br>', style={'color':'#1E1E1E'}),
-        
-            # Slider
-    html.Div(className='row', 
-    children=[
-        html.Div(className='twelve columns', 
-            children=[
-
-                html.Div([
-                    
-                    html.Div(id='slider-tooltip', style={'color': 'white',
-                                                        'font-weight': 'bold', 'text-align': 'center'}),
-                    
-                    html.Div('<br>', style={'color':'#1E1E1E'}),
-
-                    #Slider
-                    dcc.RangeSlider(
-                        id='year-range-slider',
-                        min=df_2['Year'].min(),
-                        max=df_2['Year'].max(),
-                        step=1,
-                        value=[df_2['Year'].min(), df_2['Year'].max()],
-                        marks={str(year): {'label': str(year), 'style': {#'fontWeight': 'bold', 
-                                                                         'fontSize': '120%',
-                                                                         'color': 'white'
-                                                                        }} for year in df_2['Year'].unique()}
-
-
-                    ),
-
-                    
-                    #html.P('Use the slider above to select the start year and end year of publication',
-                    #    style={'color': '#FFFFFF', 'font-size': '14px', 'text-align': 'center', 'margin-bottom': '10px'}
-                    #)
-                ], style={'width': '60%', 'margin': 'auto'})
-            ])]),
-        
         html.Div('<br>', style={'color':'#1E1E1E'}),
 
+        # Slider
+        html.Div(className='row', 
+        children=[
+            html.Div(className='twelve columns', 
+                children=[
+                        # Text for Slider
+                        html.Div([
+                            html.Div(id='slider-tooltip', 
+                                     style={'color': 'white', **custom_font, 
+                                            'padding-left':'8px'}
+                                ),
+                        #Slider
+                        dcc.RangeSlider(
+                            id='year-range-slider',
+                            min=df_2['Year'].min(),
+                            max=df_2['Year'].max(),
+                            step=1,
+                            value=[df_2['Year'].min(), df_2['Year'].max()],
+                            marks={str(year): {'label': str(year), 
+                                               'style': {'fontSize': '120%','color': 'white'}} 
+                                   for year in df_2['Year'].unique()}
+
+
+                            ),
+                        ], style={'width': '60%', 'margin': 'auto'})])]
+                ),
+        
+        html.Div('<br>', style={'color':'#1E1E1E'}),
+        
+        # Journal Dropdown
         html.Div(
             className='four columns',
-            style={**drop_down_div, 'width': '58%'},  # Adjust width here
+            style={**drop_down_div, 'width': '58%','color' : 'red'},  # Adjust width here
             children=[
+                dmc.MantineProvider(
+                    inherit=True,
+                    theme={
+                        "components": {
+                            "InputWrapper": {
+                                "styles": {
+                                    "label": {
+                                        "color": "white",
+                                        "font-size": "20px",
+                                    },
+                                    "description": {
+                                        "color": "white",
+                                       "font-size": "14px",
+                                    },
+                                }
+                            },
+                            "Input": {
+                                "styles": {
+                                    "placeholder": {"color": "red"}
+                                },
+                            },
+                        }
+                    },
+                    
+                    children=[
                 dmc.MultiSelect(
+                    label="Select Journal",
+                    description="You can select mutliple journals.",
                     id='journal-dropdown',
                     data=[
                         {'label': 'DHQ', 'value': 'DHQ'},
@@ -133,15 +159,51 @@ layout = html.Div(
                     nothingFound="No options found",
                     #multi=True,
                     placeholder="Select Humanities Journal",
-                    style={'margin-bottom' : '5px', 'margin-up' : '5px',
-                          })]
-        ),
-        
+                    style={'margin-bottom' : '5px', 'margin-up' : '5px'
+                          })
+                    ],
+                )
+            ]),
+            
+        html.Div('<br>', style={'color':'#1E1E1E'}),
+
+        # Keyword Drop down
         html.Div(
             className='four columns',
             style={**drop_down_div, 'width': '58%'},  # Adjust width here
-            children=[
+            children=[                
+                dmc.MantineProvider(
+                    inherit=True,
+                    theme={
+                        "components": {
+                            "InputWrapper": {
+                                "styles": {
+                                    "label": {
+                                        "color": "white",
+                                        "font-size": "20px",
+
+                                        #"backgroundColor": dmc.theme.DEFAULT_COLORS["yellow"][1],
+                                    },
+                                    "description": {
+                                        "color": "white",
+                                       "font-size": "14px",
+
+                                        #"backgroundColor": dmc.theme.DEFAULT_COLORS["yellow"][1],
+                                    },
+                                }
+                            },
+                            "Input": {
+                                "styles": {
+                                    "hidden": {"color": dmc.theme.DEFAULT_COLORS["violet"][4]}
+                                },
+                            },
+                        }
+                    },
+                    
+                    children=[
                 dmc.MultiSelect(
+                    label="Select Keyword",
+                    description="You can select multiple keywords ",
                     id='keyword-dropdown',
                     data=[
                         {'label': keyword, 'value': keyword} for keyword in unique_keywords
@@ -152,149 +214,159 @@ layout = html.Div(
 
                     #multi=True,
                     placeholder="Select Data Visualization Concept",
-                    style={'margin-bottom' : '5px'})]),
+                    style={'margin-bottom' : '5px', 'color':'red'})])]),
             
 
-        
-    # Cards for displaying number of articles for each journal
-    html.Div(className='row', 
-             style={'display': 'flex', 'justify-content': 'space-between',
-                    'width': '100%', 'padding-bottom': '5px','padding-top': '5px' }, 
-             children=[
-                # Card 1: Total no. of articles
-                html.Div(className='three columns', style={'paddingLeft': '1px',  'width': '100%'}, 
-                         children=[html.Div(id='total-articles-card', style={'background-color':'#333333',
-                                                                             'padding' : '10px',
-                                                                             'text-align': 'center',
-                                                                             'border': '0.3px solid #FFFFFF',
-                                                                             **drop_down,
-                                                                            'color':'white'})]
-                ),
-                # Card 2: DHQ no. of articles
-                html.Div(className='three columns', style={'width': '100%'}, 
-                         children=[html.Div(id='dhq-articles-card', style={'background-color': '#333333', 
-                                                                           'color': '#FFFFFF','padding' : '10px',
-                                                                           'text-align': 'center',
-                                                                           'border': '0.3px solid #FFFFFF', **drop_down,
-                                                                            'color':'white'})]
-                ),
-                # Card 3: JCA no. of articles
-                html.Div(className='three columns', style={'width': '100%'}, 
-                         children=[html.Div(id='jca-articles-card', style={'background-color': '#333333', 
-                                                                           'color': '#FFFFFF','padding' : '10px',
-                                                                           'text-align': 'center',
-                                                                           'border': '0.3px solid #FFFFFF', **drop_down,
-                                                                            'color':'white'})]
-                ),
-                # Card 4: JOCCH no. of articles
-                html.Div(className='three columns', style={'paddingRight': '1px', 'width': '100%'}, 
-                         children=[html.Div(id='jocch-articles-card', style={'background-color': '#333333', 
-                                                                             'color': '#FFFFFF','padding' : '10px',
-                                                                             'text-align': 'center',
-                                                                             'border': '0.3px solid #FFFFFF', **drop_down,
-                                                                            'color':'white'})]
-            )]
-    ),
-        
-        
-    html.Div('<br>', style={'color':'#1E1E1E'}),
+        html.Div('<br>', style={'color':'#1E1E1E'}),
 
-    #Graphs Div
-    html.Div(
-        className='row',
-        children=[
-            html.Div(className='twelve columns', 
-                     children=[
-                    # Graph 1
-                    html.Div(className='twelve columns', style={'display': 'inline-block','width':'99%',
-                                                            'padding-left': '5px',
-                                                            'padding-right': '5px',
-                                                              'padding-bottom': '5px'}, 
-                             children=[dcc.Graph(id='histo-chart-final')
-                    ]),
-                    # Graph 2
-                    html.Div(className='twelve columns', style={'padding-left': '5px', 
-                                                                'padding-right':'5px','width':'99%',
-                                                                'display': 'inline-block',
-                                                                'padding-bottom': '5px'}, 
-                             children=[dcc.Graph(id='second-chart-final')
-                    ])])
-        ]),
+        # Cards for displaying number of articles for each journal
+        html.Div(className='row', 
+                 style={'display': 'flex', 'justify-content': 'space-between',
+                        'width': '100%', 'padding-bottom': '5px','padding-top': '5px' }, 
+                 children=[
+                    # Card 1: Total no. of articles
+                    html.Div(className='three columns', style={'paddingLeft': '1px',  'width': '100%'}, 
+                             children=[html.Div(id='total-articles-card', style={'background-color':'#333333',
+                                                                                 'padding' : '10px',
+                                                                                 'text-align': 'center',
+                                                                                 'border': '0.3px solid #FFFFFF',
+                                                                                 **drop_down,
+                                                                                'color':'white'})]
+                    ),
+                    # Card 2: DHQ no. of articles
+                    html.Div(className='three columns', style={'width': '100%'}, 
+                             children=[html.Div(id='dhq-articles-card', style={'background-color': '#333333', 
+                                                                               'color': '#FFFFFF','padding' : '10px',
+                                                                               'text-align': 'center',
+                                                                               'border': '0.3px solid #FFFFFF', **drop_down,
+                                                                                'color':'white'})]
+                    ),
+                    # Card 3: JCA no. of articles
+                    html.Div(className='three columns', style={'width': '100%'}, 
+                             children=[html.Div(id='jca-articles-card', style={'background-color': '#333333', 
+                                                                               'color': '#FFFFFF','padding' : '10px',
+                                                                               'text-align': 'center',
+                                                                               'border': '0.3px solid #FFFFFF', **drop_down,
+                                                                                'color':'white'})]
+                    ),
+                    # Card 4: JOCCH no. of articles
+                    html.Div(className='three columns', style={'paddingRight': '1px', 'width': '100%'}, 
+                             children=[html.Div(id='jocch-articles-card', style={'background-color': '#333333', 
+                                                                                 'color': '#FFFFFF','padding' : '10px',
+                                                                                 'text-align': 'center',
+                                                                                 'border': '0.3px solid #FFFFFF', **drop_down,
+                                                                                'color':'white'})]
+                )]
+        ),
+        
+        
+        html.Div('<br>', style={'color':'#1E1E1E'}),
 
-    html.Div('<br>', style={'color':'#1E1E1E'}),
-    # Table section
-    html.Div(className='row', 
-        children=[
-            dash_table.DataTable(
-                data=[],
-                columns=[{'name': col, 'id': col} for col in table_columns],
-                tooltip_header={
-                    'Keyword': {'value': '''Keyword: Top 30     
-                    The data visualization keyword is identified from article abstracts. OpenAI GPT 3.5 was used in order to identify relevant keywords.''', 'type': 'markdown'},
-                    
-                    'Significance score': {'value': '''Significance score: [0,1]     
-                    The significance score is computed using OpenAI GPT 4. Higher the value, the more relevant it is in the context of data visualization.''', 'type': 'markdown'},
+        #Graphs Div
+        html.Div(
+            className='row',
+            children=[
+                html.Div(className='twelve columns', 
+                         children=[
+                        # Graph 1
+                        html.Div(className='twelve columns', style={'display': 'inline-block','width':'100%',
+                                                                #'padding-left': '5px',
+                                                                #'padding-right': '5px',
+                                                                  'padding-bottom': '5px'}, 
+                                 children=[dcc.Graph(id='histo-chart-final')
+                        ]),
+                        # Graph 2
+                        html.Div(className='twelve columns', style={#'padding-left': '5px', 
+                                                                    #'padding-right':'5px',
+                                                                    'width':'100%',
+                                                                    'display': 'inline-block',
+                                                                    #'padding-bottom': '5px'
+                        }, 
+                                 children=[dcc.Graph(id='second-chart-final')
+                        ])])
+            ]),
 
-                    'Rank': {'value': '''Rank: [1,30]    
-                    Computed based on a keyword\'s significance score and its occurrence across all journals. If two keywords have the same significance score, the keyword that occurs more frequently has a lower rank.''', 'type': 'markdown'}
+        html.Div('<br>', style={'color':'#1E1E1E'}),
+        # Table section
+        html.Div(className='row', 
+            children=[
+                dash_table.DataTable(
+                    data=[],
+                    columns=[{'name': col, 'id': col} for col in table_columns],
+                    tooltip_header={
+                        'Keyword': {'value': '''Keyword: Top 30     
+                        The data visualization keyword is identified from article abstracts. 
+                        OpenAI GPT 3.5 was used in order to identify relevant keywords.''', 'type': 'markdown'},
+
+                        'Significance score': {'value': '''Significance score: [0,1]     
+                        The significance score is computed using OpenAI GPT 4. 
+                        Higher the value, the more relevant it is in the context of data visualization.''', 'type': 'markdown'},
+
+                        'Rank': {'value': '''Rank: [1,30]    
+                        Computed based on a keyword\'s significance score and its occurrence across all journals. 
+                        If two keywords have the same significance score, the keyword that occurs more frequently 
+                        has a lower rank.''', 'type': 'markdown'}
+                        ,
+
+                        'DHQ': {'value': '''DHQ:     
+                        This signifies the number of times a specific keyword occurred in DHQ in the selected year range.''',
+                                'type': 'markdown'},
+
+                        'JCA': {'value': '''JCA:     
+                        This signifies the number of times a specific keyword occurred in JCA in the selected year range.''',
+                                'type': 'markdown'},
+
+                        'JOCCH': {'value': '''JOCCH:     
+                        This signifies the number of times a specific keyword occurred in JOCCH in the selected year range.''',
+                                  'type': 'markdown'}}
                     ,
 
-                    'DHQ': {'value': '''DHQ:     
-                    This signifies the number of times a specific keyword occurred in DHQ in the selected year range.''', 'type': 'markdown'},
+                    # Style headers with a dotted underline to indicate a tooltip
+                    style_header_conditional=[{
+                        'if': {'column_id': col},
+                        'textDecoration': 'underline',
+                        'textDecorationStyle': 'dotted',
+                    } for col in table_columns],
 
-                    'JCA': {'value': '''JCA:     
-                    This signifies the number of times a specific keyword occurred in JCA in the selected year range.''', 'type': 'markdown'},
+                    # Overflow into ellipsis
+                    style_cell={
+                        'overflow': 'hidden',
+                        'textOverflow': 'ellipsis',
+                        'maxWidth': 0,
+                        'textAlign': 'center',  # Center align cell content
+                        'fontSize': '14px',
+                        'fontFamily': 'Arial, sans-serif',
+                        'padding': '8px',
+                        'color': '#FFFFFF',
+                        'backgroundColor': '#333333',  # Cell background color
+                    },
+                    tooltip_delay=0,
+                    tooltip_duration=None,
+                    page_size=11,
+                    style_table={
+                        'overflowX': 'auto',
+                        'border': '1px solid #FFFFFF',
+                        'background-color': '#333333',  # Dark background color
+                        'color': '#FFFFFF',  # Text color
+                    },
+                    style_header={
+                        'backgroundColor': '#1E1E1E',  # Header background color
+                        'fontWeight': 'bold',
+                        'border': '1px solid #FFFFFF',
+                        'color': '#FFFFFF',  # Header text color
+                        'text-align': 'center',  # Center align header text
+                    },
+                    style_data={
+                        'whiteSpace': 'normal',
+                        'height': 'auto',
+                        'border': '1px solid #FFFFFF',
+                        'text-align': 'center',  # Center align data cells
+                    },
+                    id='my-datatable'
+                ),
 
-                    'JOCCH': {'value': '''JOCCH:     
-                    This signifies the number of times a specific keyword occurred in JOCCH in the selected year range.''', 'type': 'markdown'}}
-                ,
-
-                # Style headers with a dotted underline to indicate a tooltip
-                style_header_conditional=[{
-                    'if': {'column_id': col},
-                    'textDecoration': 'underline',
-                    'textDecorationStyle': 'dotted',
-                } for col in table_columns],
-
-                # Overflow into ellipsis
-                style_cell={
-                    'overflow': 'hidden',
-                    'textOverflow': 'ellipsis',
-                    'maxWidth': 0,
-                    'textAlign': 'center',  # Center align cell content
-                    'fontSize': '14px',
-                    'fontFamily': 'Arial, sans-serif',
-                    'padding': '8px',
-                    'color': '#FFFFFF',
-                    'backgroundColor': '#333333',  # Cell background color
-                },
-                tooltip_delay=0,
-                tooltip_duration=None,
-                page_size=11,
-                style_table={
-                    'overflowX': 'auto',
-                    'border': '1px solid #FFFFFF',
-                    'background-color': '#333333',  # Dark background color
-                    'color': '#FFFFFF',  # Text color
-                },
-                style_header={
-                    'backgroundColor': '#1E1E1E',  # Header background color
-                    'fontWeight': 'bold',
-                    'border': '1px solid #FFFFFF',
-                    'color': '#FFFFFF',  # Header text color
-                    'text-align': 'center',  # Center align header text
-                },
-                style_data={
-                    'whiteSpace': 'normal',
-                    'height': 'auto',
-                    'border': '1px solid #FFFFFF',
-                    'text-align': 'center',  # Center align data cells
-                },
-                id='my-datatable'
-            ),
-               
-        ]
-    )
+            ]
+        )
 
 
         
@@ -315,18 +387,25 @@ layout = html.Div(
 def update_tooltip(value = None):
     tooltip_style = {
         'color': 'white',
-        'font-weight': 'bold',
+        #'font-weight': 'bold',
         'padding': '10px',
-        'border': '1px solid white',
-        'border-radius': '5px',
         'display': 'inline-block',
-        'background-color': '#282c34',  # Lighter shade of #282c34 with increased opacity (80%)
+        'font-size': '20px',
+        'font-weight': '500',
+        'word-break': 'break-word',
+        #'border': '1px solid white',
+        #'border-radius': '5px',
+        #'display': 'inline-block',
+        #'background-color': '#282c34',  # Lighter shade of #282c34 with increased opacity (80%)
 
     }
     return html.Div([
         html.Div([
-            html.Div(f'Publication Year Start: {value[0]}', style={'margin-bottom': '5px'}),
-            html.Div(f'Publication Year End: {value[1]}')
+            html.Div(f'Select Year Range', style={'margin-bottom': '3px'}),
+            html.Div(f'You can drag slider to set start and end year.', style={'margin-bottom': '5px',
+                                                                            'font-size': '14px'}),
+            #html.Div(f'{value[0]} - {value[1]}', style={'font-size': '12px',
+             #                                                  'font-weight': 'bold',})
         ], style=tooltip_style)
     ])
 
@@ -390,26 +469,19 @@ def update_graph(selected_journals, selected_keywords, year_range):
     filtered_df = filtered_df.sort_values(by = "Rank")
 
 
-    #category_mapping = {'DHQ': 1, 'JCA': 2, 'JOCCH': 3}
-    #filtered_df['jittered_Journal'] = filtered_df['Journal'].map(category_mapping)
-    #filtered_df["jittered_Journal"] = filtered_df['jittered_Journal'] + np.random.normal(-0.01, 0.01, len(filtered_df))
-
     fig = px.scatter(filtered_df, 
                      y='Journal', 
-                     #y='jittered_Journal', 
                      x="% of articles", 
                      size="Size", 
                      color="Keyword",
                      size_max=30, 
                      opacity = 0.5,
- 
                      hover_data={"Keyword": True, 
                                  "Significance score": True,
                                  "% of articles": True, 
                                  "Rank": True, 
                                  "Size": False,
                                  "Journal": False,
-                                 #'jittered_Journal' : False,
                                  "Journal":True,
                                  "% of articles":False
                                 }, 
@@ -437,18 +509,18 @@ def update_graph(selected_journals, selected_keywords, year_range):
                'font': {'size': 16, 'color': '#FFFFFF'},
                #'x': 0.1
               },  # Title of the plot with center alignment
-        margin=dict(l=50, t=75, b=75, r=50),  
+        margin=dict(l=100, t=75, b=75, r=200),  
         legend=dict(
             traceorder='normal',  
             bordercolor='Black',  
             borderwidth=1, 
-            itemclick="toggleothers"
+            itemclick="toggleothers",
+            x = 0.99
             #itemclick=False, 
             #itemdoubleclick=False
         )
     )
 
-    #fig.update_yaxes(tickvals=[1,2,3], ticktext=["DHQ", "JCA", "JOCCH"], tickformat='%Y', showgrid=False, zeroline=False)
     return fig
 
 # Callback to update the second graph with provided plot data
@@ -518,7 +590,9 @@ def update_second_graph(selected_journals, selected_keywords, year_range ):
         legend=dict(
             bordercolor='Black',  # Set border color
             borderwidth=1, 
-            itemclick="toggleothers" #// the important attribute you need!
+            itemclick="toggleothers",
+                        x = 0.99
+#// the important attribute you need!
             #itemclick=False,  # Disable legend item selection
             #itemdoubleclick=False,
             # Disable legend item double click
@@ -530,7 +604,7 @@ def update_second_graph(selected_journals, selected_keywords, year_range ):
                'font': {'size': 16, 'color': '#FFFFFF'},
                #'x': 0.1
               },  # Set x position of the title to the left
-        margin=dict(l=35, r=50, t=75, b=75)
+        margin=dict(l=110, r=200, t=75, b=75)
     )
 
     return fig_2  
