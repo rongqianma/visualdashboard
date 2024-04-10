@@ -11,7 +11,7 @@ layout = html.Div([
     html.Div([
         html.Div([
             html.H2('Last Updated', style={'margin-bottom': '10px', 'color': 'white', 'font-family': 'Arial, sans-serif', 'font-weight': 'bold', 'font-size': '1.5rem', 'text-align': 'left'}),
-            html.P("03/21/24", style={'color': 'white', 'font-family': 'Arial, sans-serif', 'font-size': '1rem', 'text-align': 'left'}),
+            html.P("04/10/24", style={'color': 'white', 'font-family': 'Arial, sans-serif', 'font-size': '1rem', 'text-align': 'left'}),
             html.P("Home & About Page are a WIP", style={'color': 'white', 'font-family': 'Arial, sans-serif', 'font-size': '1rem', 'text-align': 'left'}),
             html.P("Please come back again!", style={'color': 'white', 'font-family': 'Arial, sans-serif', 'font-size': '1rem', 'text-align': 'left'}),
         ], style={'margin-bottom': '30px', 'text-align': 'left', 'padding':'20px'}),
