@@ -2,6 +2,17 @@
 
 Temporarily hosted on - https://visualdashboard-40qr.onrender.com/
 
+# About the application
+
+The application primarily consists of 3 distinct pages:
+- Home
+- Dashboard
+- Acknowledgement
+
+One can make edits to these files by navigating to the src/pages directory
+
+
+# How to host the dash application on Render?
 
 ### Components
 
