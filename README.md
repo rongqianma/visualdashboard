@@ -28,38 +28,13 @@ Dash apps are made interactive through Dash Callbacks: chainable functions that 
 
 Callbacks have been defined for the following filter elements:
 
-| Feature            | Description                                                                                                 | Interacts with       |
+| Filter            | Description                                                                                                 | Interacts with       |
 |--------------------|-------------------------------------------------------------------------------------------------------------|----------------------|
-| Year Slider        | User can select a year range between 2008 and 2023.                                                        | Cards, Graph 1, Graph 2, Data Table |
-| Journal Dropdown   | User can select one or more journals from the drop-down.                                                   | Cards, Graph 1, Graph 2, Data Table |
+| Year Slider        | User can select a year range between 2008 and 2023.                                                        | Cards 1-4, Graph 1, Graph 2, Data Table |
+| Journal Dropdown   | User can select one or more journals from the drop-down.                                                   | Cards 1-4, Graph 1, Graph 2, Data Table |
 | Keyword Dropdown   | User can select one or more data visualization keywords from the drop down.                                | Graph 1, Graph 2, Data Table       |
 
 
-1. Year Slider  
-   User can select a year range between 2008 and 2023.
-   
-   Interacts with:
-   - Cards
-   - Graph 1
-   - Graph 2
-   - Data Table
-
-2. Journal Dropdown  
-   User can select one or more journals from the drop-down.
-   
-   Interacts with:
-   - Cards
-   - Graph 1
-   - Graph 2
-   - Data Table
-
-3. Keyword Dropdown  
-   User can select one or more data visualization keywords from the drop down.
-   
-   Interacts with:
-   - Graph 1
-   - Graph 2
-   - Data Table
 
 # How to Host the Dash Application on Render?
 
