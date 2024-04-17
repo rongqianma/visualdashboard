@@ -11,6 +11,40 @@ The application primarily consists of 3 distinct pages:
 
 One can make edits to these files by navigating to the src/pages directory
 
+## Dashboard
+
+- Consists of multiple elements, callbacks and settings.
+- To enable plot interactivity, callbacks have been designed in order for seamless updates.
+
+**What is a callback?**  
+Dash apps are made interactive through Dash Callbacks: chainable functions that are automatically called whenever a UI element is changed.
+
+Callbacks have been defined for the following filter elements:
+1) Year Slider 
+User can select a year range between 2008 and 2023.
+
+Interacts with
+Cards
+Graph 1
+Graph 2
+Data Table
+
+2) Journal Dropdown
+User can select one or more journals from the drop-down.
+
+Interacts with
+Cards
+Graph 1
+Graph 2
+Data Table
+
+3) Keyword Dropdown
+User can select one or more data visualization keywords from the drop down.
+
+Interacts with
+Graph 1
+Graph 2
+Data Table
 
 # How to host the dash application on Render?
 
