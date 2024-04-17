@@ -6,7 +6,7 @@ Temporarily hosted on - https://visualdashboard-40qr.onrender.com/
 ### Components
 
 - Github repository that is set to public
-- Free Render account - (Render)[https://dashboard.render.com/]
+- Free Render account - https://dashboard.render.com/
 
 ## How to connect Github repository to Render
 
@@ -20,6 +20,6 @@ Temporarily hosted on - https://visualdashboard-40qr.onrender.com/
 
 ## How to make changes to the dashboard?
 
-- Edit the files in the repository as needed.
+- Edit the files in the repository as needed
 - Once the edits are made, navigate to your webservice on the Render dashboard
 - Select the option to "Manually deploy the latest commit"
