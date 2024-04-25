@@ -47,12 +47,12 @@ journal_keyword_dict = {'JCA' : '# of articles keyword DHQ',
            'JOCCH' : '# of articles keyword JOCCH'}
 
 distinct_colors = [
-    '#FF5733', '#FFC300', '#FFA500', '#008000', '#008080',  # Reds, Yellows, Gold, Green, Teal
+    '#FF5733', '#FFC300', '#FFA500', '#B22222', '#008080',  # Reds, Yellows, Gold, Green, Teal
     '#0000FF', 'lightgreen', '#FF00FF', '#808080', '#000000',  # Blue, Purple, Magenta, Gray, Black
     '#00FF00', '#00FFFF', 'white', '#6A5ACD', 'darkred',  # Lime, Cyan, Dark Blue, Slate Blue, Deep Pink
     '#FF69B4', 'red', 'yellow', '#4682B4', '#556B2F',  # Hot Pink, Tomato, Light Salmon, Steel Blue, Dark Olive Green
     '#8A2BE2', '#8B008B', '#000080', '#4B0082', 'lightblue',  # Blue Violet, Dark Magenta, Navy, Indigo, Chartreuse
-    'lightpink', '#00BFFF', '#00FA9A', '#6495ED', '#B22222'   # Orange Red, Deep Sky Blue, Medium Spring Green, Medium Purple, Fire Brick
+    'lightpink', '#00BFFF', '#00FA9A', '#6495ED', '#008000'   # Orange Red, Deep Sky Blue, Medium Spring Green, Medium Purple, Fire Brick
 ]
 
 df_4 = df_2[["Year","DHQ_yearly_total", "JCA_yearly_total", "JOOCH_yearly_total", "yearly_total"]].drop_duplicates()
