@@ -32,15 +32,17 @@ app.layout = html.Div([
         style={'background-color': '#2b2b2b', 'padding': '5px'},  # Background color and padding adjusted for a clean look
         children=[
             html.Div(className='twelve columns',
-                style = {'textAlign': 'center'},
+                #style = {'textAlign': 'center'},
                 children = [
                     html.H2('KEYWORD ANALYSIS ON HUMANITIES JOURNAL ARTICLES',  
                         style = header_style)
                          ]
         )]),
 html.Div(
+
     [
         html.Div(
+            
             dcc.Link(
                 f"{page['name']}",
                 href=page["relative_path"],
@@ -48,8 +50,10 @@ html.Div(
                 'fontFamily': 'Arial, sans-serif',  # Elegant font family
                 'fontWeight': 'bold',  # Bold text
                 'letterSpacing': '1px',  # Spacing between letters
-                'marginBottom': '20px', 
-                       'text-decoration': 'none', 'margin-right': '20px', 'font-size': '18px',
+               'border': '1px solid white',  # Adding border
+                'padding': '5px 15px',  # Adding padding around the border
+
+                       'text-decoration': 'none', 'font-size': '18px',
                       'color': 'white'}
             )
         ) 
@@ -58,12 +62,12 @@ html.Div(
     style={
         'display': 'flex',
         'flexWrap': 'wrap',
-        'background-color': '#282c34',
+        'background-color': '#2b2b2b',
         'color': 'white',
-        'padding-bottom': '10px',
-        'padding-top': '10px',
-
-        'justify-content': 'center',  # Center align the links
+        'padding-bottom': '5px',
+        'padding-top': '5px',
+        'justify-content': 'center', 
+        # Center align the links
 
     }
 )
@@ -72,6 +76,7 @@ html.Div(
     ,
     dash.page_container
 ])
+
 
 if __name__ == '__main__':
     app.run(debug=True)
