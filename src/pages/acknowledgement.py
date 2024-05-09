@@ -26,16 +26,7 @@ paragraph_style = {
 
 # Layout
 layout = html.Div([
-    html.Div([
-        html.H1('Funding Agencies & Participants', style=heading_style),
         html.Div([
-                    html.Img(src='assets/luddy.png', style={'width': '240px', 'height': '225px', 'margin-right': '10px'}),                    html.Img(src= 'assets/idah.png', style={'width': '240px', 'height': '225px', 'margin-right': '10px'}),
-
-
-                ], style={'display': 'flex', 'align-items': 'center', 'margin-bottom': '10px'})
-    ], style={'padding': '20px', 'background-color': '#222'}),
-
-    html.Div([
 
 
         html.Div([
@@ -47,13 +38,22 @@ layout = html.Div([
                     html.Img(src= 'assets/sagar_prabhu.png', style={'width': '220px', 'height': '300px', 'margin-right': '10px'}),
                     html.Img(src= 'assets/amar_ananth.png', style={'width': '220px', 'height': '300px', 'margin-right': '10px'}),
 
-                ], style={'display': 'flex', 'align-items': 'center', 'margin-bottom': '10px'}),
+                ], style={'display': 'flex', 'align-items': 'center'}),
 
-            ], style={'margin-bottom': '10px', **common_style, 'padding': '20px'})
-        ], style={'background-color': '#333'}),
-            html.Div([
+            ], style={**common_style, 'padding': '20px'})
+        ], style={'background-color': '#333', 'margin-top': '0.1px'}),
+    ]),
+    html.Div([
+        html.H1('Funding Agencies', style=heading_style),
+        html.Div([
+                    html.Img(src='assets/luddy.png', style={'width': '240px', 'height': '225px', 'margin-right': '10px', 'margin-top': '10px'}),                    html.Img(src= 'assets/idah.png', style={'width': '240px', 'height': '225px', 'margin-right': '10px', 'margin-top': '10px'}),
+
+
+                ], style={'display': 'flex', 'align-items': 'center', 'margin-bottom': '10px'})
+    ], style={'padding': '20px',  'background-color': '#222'}),
+                html.Div([
             html.H2('Last Update: internal use only', style=heading_style),
-            html.P("04/24/24", style=paragraph_style),
-        ], style={'margin-bottom': '10px', **common_style, 'padding': '20px'}),
-    ])
+            html.P("05/05/24", style=paragraph_style),
+        ], style={'margin-bottom': '10px', **common_style, 'padding': '20px'})
+
 ], style={'background-color': 'black'})
