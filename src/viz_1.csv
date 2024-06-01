@@ -1,0 +1,201 @@
+,Keyword,Significance,Journal,# of Articles,% of articles,Rank,Size
+0,algorithm,0.7,DSH,7,0.006,34.0,17.0
+1,analysis,0.95,DSH,1,0.001,3.0,48.0
+2,analyzing,0.75,DSH,8,0.007,31.0,20.0
+3,annotation,0.75,DSH,8,0.007,30.0,21.0
+4,application,0.85,DSH,7,0.006,6.0,45.0
+5,approach,0.7,DSH,8,0.007,44.0,7.0
+6,big data,0.9,DSH,5,0.004,4.0,47.0
+7,challenge,0.7,DSH,15,0.013,42.0,9.0
+8,classification,0.8,DSH,5,0.004,13.0,38.0
+9,classifier,0.8,DSH,0,0.0,17.0,34.0
+10,cluster,0.8,DSH,2,0.002,21.0,30.0
+11,clustering,0.85,DSH,1,0.001,8.0,43.0
+12,coding,0.8,DSH,4,0.003,29.0,22.0
+13,comparison,0.7,DSH,4,0.003,48.0,3.0
+14,computational tools,0.85,DSH,23,0.02,5.0,46.0
+15,computer science,0.7,DSH,6,0.005,50.0,1.0
+16,correlation,0.85,DSH,2,0.002,9.0,42.0
+17,data,1.0,DSH,27,0.023,2.0,49.0
+18,database,0.7,DSH,11,0.009,35.0,16.0
+19,design,0.7,DSH,9,0.008,40.0,11.0
+20,distribution,0.8,DSH,2,0.002,14.0,37.0
+21,effectiveness,0.7,DSH,1,0.001,46.0,5.0
+22,evaluate,0.8,DSH,1,0.001,27.0,24.0
+23,feature,0.7,DSH,4,0.003,47.0,4.0
+24,frequency,0.8,DSH,2,0.002,15.0,36.0
+25,image,0.7,DSH,9,0.008,41.0,10.0
+26,information,0.85,DSH,3,0.003,7.0,44.0
+27,information technology,0.75,DSH,0,0.0,33.0,18.0
+28,insight,0.8,DSH,5,0.004,16.0,35.0
+29,interaction,0.7,DSH,3,0.003,45.0,6.0
+30,interface,0.8,DSH,15,0.013,12.0,39.0
+31,interpretation,0.8,DSH,17,0.015,11.0,40.0
+32,machine learning,0.7,DSH,8,0.007,39.0,12.0
+33,metadata,0.7,DSH,10,0.009,36.0,15.0
+34,model,0.8,DSH,9,0.008,10.0,41.0
+35,processing,0.8,DSH,0,0.0,23.0,28.0
+36,prototype,0.7,DSH,5,0.004,49.0,2.0
+37,rendering,0.8,DSH,0,0.0,28.0,23.0
+38,shape,0.8,DSH,1,0.001,22.0,29.0
+39,software,0.7,DSH,7,0.006,38.0,13.0
+40,software tools,0.8,DSH,1,0.001,24.0,27.0
+41,structure,0.7,DSH,8,0.007,43.0,8.0
+42,table,0.8,DSH,0,0.0,26.0,25.0
+43,technology,0.7,DSH,15,0.013,37.0,14.0
+44,text mining,0.8,DSH,4,0.003,18.0,33.0
+45,topic modeling,0.75,DSH,5,0.004,32.0,19.0
+46,usability,0.8,DSH,3,0.003,20.0,31.0
+47,user,0.8,DSH,3,0.003,25.0,26.0
+48,user experience,0.8,DSH,2,0.002,19.0,32.0
+49,visualization,1.0,DSH,36,0.031,1.0,50.0
+50,algorithm,0.7,DHQ,41,0.057,34.0,17.0
+51,analysis,0.95,DHQ,22,0.031,3.0,48.0
+52,analyzing,0.75,DHQ,1,0.001,31.0,20.0
+53,annotation,0.75,DHQ,29,0.041,30.0,21.0
+54,application,0.85,DHQ,13,0.018,6.0,45.0
+55,approach,0.7,DHQ,8,0.011,44.0,7.0
+56,big data,0.9,DHQ,10,0.014,4.0,47.0
+57,challenge,0.7,DHQ,7,0.01,42.0,9.0
+58,classification,0.8,DHQ,22,0.031,13.0,38.0
+59,classifier,0.8,DHQ,13,0.018,17.0,34.0
+60,cluster,0.8,DHQ,9,0.013,21.0,30.0
+61,clustering,0.85,DHQ,12,0.017,8.0,43.0
+62,coding,0.8,DHQ,2,0.003,29.0,22.0
+63,comparison,0.7,DHQ,13,0.018,48.0,3.0
+64,computational tools,0.85,DHQ,29,0.041,5.0,46.0
+65,computer science,0.7,DHQ,10,0.014,50.0,1.0
+66,correlation,0.85,DHQ,13,0.018,9.0,42.0
+67,data,1.0,DHQ,31,0.043,2.0,49.0
+68,database,0.7,DHQ,41,0.057,35.0,16.0
+69,design,0.7,DHQ,16,0.022,40.0,11.0
+70,distribution,0.8,DHQ,20,0.028,14.0,37.0
+71,effectiveness,0.7,DHQ,4,0.006,46.0,5.0
+72,evaluate,0.8,DHQ,0,0.0,27.0,24.0
+73,feature,0.7,DHQ,14,0.02,47.0,4.0
+74,frequency,0.8,DHQ,21,0.029,15.0,36.0
+75,image,0.7,DHQ,13,0.018,41.0,10.0
+76,information,0.85,DHQ,10,0.014,7.0,44.0
+77,information technology,0.75,DHQ,7,0.01,33.0,18.0
+78,insight,0.8,DHQ,7,0.01,16.0,35.0
+79,interaction,0.7,DHQ,11,0.015,45.0,6.0
+80,interface,0.8,DHQ,13,0.018,12.0,39.0
+81,interpretation,0.8,DHQ,31,0.043,11.0,40.0
+82,machine learning,0.7,DHQ,21,0.029,39.0,12.0
+83,metadata,0.7,DHQ,22,0.031,36.0,15.0
+84,model,0.8,DHQ,24,0.034,10.0,41.0
+85,processing,0.8,DHQ,5,0.007,23.0,28.0
+86,prototype,0.7,DHQ,6,0.008,49.0,2.0
+87,rendering,0.8,DHQ,0,0.0,28.0,23.0
+88,shape,0.8,DHQ,1,0.001,22.0,29.0
+89,software,0.7,DHQ,32,0.045,38.0,13.0
+90,software tools,0.8,DHQ,7,0.01,24.0,27.0
+91,structure,0.7,DHQ,16,0.022,43.0,8.0
+92,table,0.8,DHQ,7,0.01,26.0,25.0
+93,technology,0.7,DHQ,26,0.036,37.0,14.0
+94,text mining,0.8,DHQ,9,0.013,18.0,33.0
+95,topic modeling,0.75,DHQ,5,0.007,32.0,19.0
+96,usability,0.8,DHQ,3,0.004,20.0,31.0
+97,user,0.8,DHQ,1,0.001,25.0,26.0
+98,user experience,0.8,DHQ,0,0.0,19.0,32.0
+99,visualization,1.0,DHQ,45,0.063,1.0,50.0
+100,algorithm,0.7,JCA,0,0.0,34.0,17.0
+101,analysis,0.95,JCA,3,0.02,3.0,48.0
+102,analyzing,0.75,JCA,1,0.007,31.0,20.0
+103,annotation,0.75,JCA,4,0.026,30.0,21.0
+104,application,0.85,JCA,0,0.0,6.0,45.0
+105,approach,0.7,JCA,0,0.0,44.0,7.0
+106,big data,0.9,JCA,0,0.0,4.0,47.0
+107,challenge,0.7,JCA,0,0.0,42.0,9.0
+108,classification,0.8,JCA,1,0.007,13.0,38.0
+109,classifier,0.8,JCA,0,0.0,17.0,34.0
+110,cluster,0.8,JCA,0,0.0,21.0,30.0
+111,clustering,0.85,JCA,0,0.0,8.0,43.0
+112,coding,0.8,JCA,0,0.0,29.0,22.0
+113,comparison,0.7,JCA,0,0.0,48.0,3.0
+114,computational tools,0.85,JCA,13,0.086,5.0,46.0
+115,computer science,0.7,JCA,0,0.0,50.0,1.0
+116,correlation,0.85,JCA,2,0.013,9.0,42.0
+117,data,1.0,JCA,7,0.046,2.0,49.0
+118,database,0.7,JCA,1,0.007,35.0,16.0
+119,design,0.7,JCA,0,0.0,40.0,11.0
+120,distribution,0.8,JCA,2,0.013,14.0,37.0
+121,effectiveness,0.7,JCA,0,0.0,46.0,5.0
+122,evaluate,0.8,JCA,0,0.0,27.0,24.0
+123,feature,0.7,JCA,1,0.007,47.0,4.0
+124,frequency,0.8,JCA,1,0.007,15.0,36.0
+125,image,0.7,JCA,1,0.007,41.0,10.0
+126,information,0.85,JCA,4,0.026,7.0,44.0
+127,information technology,0.75,JCA,0,0.0,33.0,18.0
+128,insight,0.8,JCA,1,0.007,16.0,35.0
+129,interaction,0.7,JCA,1,0.007,45.0,6.0
+130,interface,0.8,JCA,0,0.0,12.0,39.0
+131,interpretation,0.8,JCA,1,0.007,11.0,40.0
+132,machine learning,0.7,JCA,5,0.033,39.0,12.0
+133,metadata,0.7,JCA,2,0.013,36.0,15.0
+134,model,0.8,JCA,1,0.007,10.0,41.0
+135,processing,0.8,JCA,0,0.0,23.0,28.0
+136,prototype,0.7,JCA,0,0.0,49.0,2.0
+137,rendering,0.8,JCA,0,0.0,28.0,23.0
+138,shape,0.8,JCA,0,0.0,22.0,29.0
+139,software,0.7,JCA,0,0.0,38.0,13.0
+140,software tools,0.8,JCA,0,0.0,24.0,27.0
+141,structure,0.7,JCA,0,0.0,43.0,8.0
+142,table,0.8,JCA,1,0.007,26.0,25.0
+143,technology,0.7,JCA,0,0.0,37.0,14.0
+144,text mining,0.8,JCA,1,0.007,18.0,33.0
+145,topic modeling,0.75,JCA,2,0.013,32.0,19.0
+146,usability,0.8,JCA,0,0.0,20.0,31.0
+147,user,0.8,JCA,1,0.007,25.0,26.0
+148,user experience,0.8,JCA,0,0.0,19.0,32.0
+149,visualization,1.0,JCA,3,0.02,1.0,50.0
+150,algorithm,0.7,JOCCH,20,0.039,34.0,17.0
+151,analysis,0.95,JOCCH,3,0.006,3.0,48.0
+152,analyzing,0.75,JOCCH,4,0.008,31.0,20.0
+153,annotation,0.75,JOCCH,13,0.025,30.0,21.0
+154,application,0.85,JOCCH,15,0.029,6.0,45.0
+155,approach,0.7,JOCCH,12,0.023,44.0,7.0
+156,big data,0.9,JOCCH,1,0.002,4.0,47.0
+157,challenge,0.7,JOCCH,17,0.033,42.0,9.0
+158,classification,0.8,JOCCH,5,0.01,13.0,38.0
+159,classifier,0.8,JOCCH,4,0.008,17.0,34.0
+160,cluster,0.8,JOCCH,1,0.002,21.0,30.0
+161,clustering,0.85,JOCCH,5,0.01,8.0,43.0
+162,coding,0.8,JOCCH,0,0.0,29.0,22.0
+163,comparison,0.7,JOCCH,5,0.01,48.0,3.0
+164,computational tools,0.85,JOCCH,6,0.012,5.0,46.0
+165,computer science,0.7,JOCCH,1,0.002,50.0,1.0
+166,correlation,0.85,JOCCH,1,0.002,9.0,42.0
+167,data,1.0,JOCCH,37,0.072,2.0,49.0
+168,database,0.7,JOCCH,13,0.025,35.0,16.0
+169,design,0.7,JOCCH,17,0.033,40.0,11.0
+170,distribution,0.8,JOCCH,4,0.008,14.0,37.0
+171,effectiveness,0.7,JOCCH,19,0.037,46.0,5.0
+172,evaluate,0.8,JOCCH,7,0.014,27.0,24.0
+173,feature,0.7,JOCCH,4,0.008,47.0,4.0
+174,frequency,0.8,JOCCH,2,0.004,15.0,36.0
+175,image,0.7,JOCCH,17,0.033,41.0,10.0
+176,information,0.85,JOCCH,15,0.029,7.0,44.0
+177,information technology,0.75,JOCCH,2,0.004,33.0,18.0
+178,insight,0.8,JOCCH,8,0.016,16.0,35.0
+179,interaction,0.7,JOCCH,10,0.019,45.0,6.0
+180,interface,0.8,JOCCH,15,0.029,12.0,39.0
+181,interpretation,0.8,JOCCH,9,0.017,11.0,40.0
+182,machine learning,0.7,JOCCH,11,0.021,39.0,12.0
+183,metadata,0.7,JOCCH,25,0.048,36.0,15.0
+184,model,0.8,JOCCH,33,0.064,10.0,41.0
+185,processing,0.8,JOCCH,5,0.01,23.0,28.0
+186,prototype,0.7,JOCCH,8,0.016,49.0,2.0
+187,rendering,0.8,JOCCH,7,0.014,28.0,23.0
+188,shape,0.8,JOCCH,9,0.017,22.0,29.0
+189,software,0.7,JOCCH,8,0.016,38.0,13.0
+190,software tools,0.8,JOCCH,2,0.004,24.0,27.0
+191,structure,0.7,JOCCH,7,0.014,43.0,8.0
+192,table,0.8,JOCCH,1,0.002,26.0,25.0
+193,technology,0.7,JOCCH,16,0.031,37.0,14.0
+194,text mining,0.8,JOCCH,1,0.002,18.0,33.0
+195,topic modeling,0.75,JOCCH,0,0.0,32.0,19.0
+196,usability,0.8,JOCCH,7,0.014,20.0,31.0
+197,user,0.8,JOCCH,5,0.01,25.0,26.0
+198,user experience,0.8,JOCCH,13,0.025,19.0,32.0
+199,visualization,1.0,JOCCH,25,0.048,1.0,50.0
