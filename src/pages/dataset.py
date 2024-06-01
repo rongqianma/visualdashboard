@@ -29,14 +29,16 @@ layout = html.Div([
     html.Div([
         html.H1('Distributions of Articles', style=heading_style),
         html.Div([
-                    html.Img(src='assets/article_pc.png', style={'width': '500px', 'height': '500px', 'margin-right':'10px'}),                            
-            html.Img(src='assets/article_sb.png', style={'width': '870px', 'height': '500px', 'margin-right': '10px'})
+                    html.Img(src='assets/article_pc.png', style={'width': '400px', 'height': '400px', 'margin-left': '10px', 'margin-right':'10px'}),                            
+            html.Img(src='assets/metrics.png', style={'width': '970px', 'height': '400px', 'margin-right': '10px'})
 
                 ], style={'display': 'flex', 'align-items': 'center', 'margin-bottom': '10px'}),
 
         html.Div([
 
-                    html.Img(src='assets/heatmap_3y.png', style={'width': '1380px', 'height': '270px', 'margin-right':'10px'})
+                    html.Img(src='assets/heatmap_5y.png', style={'width': '700px', 'height': '400px', 'margin-left':'10px'}),
+                                html.Img(src= 'assets/article_sb.png', style={'width': '670px', 'height': '400px', 'margin-left': '10px'})
+
             
                 ], style={'display': 'flex', 'align-items': 'center', 'margin-bottom': '10px'}),
 
@@ -52,15 +54,12 @@ layout = html.Div([
 
                                 html.Div([
 
-                    html.Img(src= 'assets/fig_chart.png', style={'width': '1000px', 'height': '500px', 'margin-left': '180px'}),
-
-                ], style={'display': 'flex', 'align-items': 'center', 'margin-bottom': '10px'}),
-                
-                                html.Div([
+                    html.Img(src= 'assets/fig_chart.png', style={'width': '800px', 'height': '425px', 'margin-left': '10px', 'margin-right': '10px'}),                    
+                                    html.Img(src= 'assets/metrics_figures.png', style={'width': '570px', 'height': '425px'}),
 
 
-                ], style={'display': 'flex', 'align-items': 'center', 'margin-bottom': '10px'})
-            ], style={'margin-bottom': '0px', **common_style, 'padding': '20px'})
+                ], style={'display': 'flex', 'margin-bottom': '10px'})
+            ], style={'margin-bottom': '0px', **common_style, 'padding': '10px'})
         ], style={'background-color': '#222'}),
     ]),
     
@@ -91,20 +90,6 @@ html.Div([
         ], style={'background-color': '#222'})
     ]),
     
-html.Div([
 
-
-        html.Div([
-            html.Div([
-                html.H2('Data Table', style=heading_style),
-                
-
-
-                html.Img(src= 'assets/metrics.png', style={'width': '1380px', 'height': '380px'}),
-
-
-            ], style={'margin-bottom': '10px', **common_style, 'padding': '20px'})
-        ], style={'background-color': '#222'})
-    ])
     
 ], style={'background-color': 'black'})
