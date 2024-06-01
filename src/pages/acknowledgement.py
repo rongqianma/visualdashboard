@@ -50,10 +50,6 @@ layout = html.Div([
 
 
                 ], style={'display': 'flex', 'align-items': 'center', 'margin-bottom': '10px'})
-    ], style={'padding': '20px',  'background-color': '#222'}),
-                html.Div([
-            html.H2('Last Update: internal use only', style=heading_style),
-            html.P("05/05/24", style=paragraph_style),
-        ], style={'margin-bottom': '10px', **common_style, 'padding': '20px'})
+    ], style={'padding': '20px',  'background-color': '#222'})
 
 ], style={'background-color': 'black'})
