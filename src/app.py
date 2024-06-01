@@ -10,7 +10,6 @@ app = Dash(__name__, use_pages=True)
 server = app.server
 
 
-
 header_style = {
                 'textAlign': 'center',
                 #'color': '#4a90e2',  # Blue color
@@ -76,6 +75,7 @@ html.Div(
     ,
     dash.page_container
 ])
+
 
 
 if __name__ == '__main__':
