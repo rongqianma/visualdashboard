@@ -142,11 +142,29 @@ html.Div([
 
         html.Div([
             html.Div([
-                html.Div([
-                    html.H2('Methodology', style=intro_style),
-                    html.P("For identification of Data Visualization keywords, Large Language Models (LLMs) such as GPT 3.5 and GPT 4 were utilized. Through prompt engineering involving diverse techniques, effective prompts were tailored for the domain-specific task.", style=text_style),
-                    html.P("Following the identification of keywords, data aggregation and summarization was performed across journals and years of publish. Within the dashboard interface, users have the capability to filter by year, journal, and visualization keyword, facilitating the visualization of keyword usage trends across year ranges.", style=text_style),
-                ], style={'margin-bottom': '20px', 'text-align': 'left'})
+html.Div([
+    html.H2('Methodology', style=intro_style),
+    html.P(
+        "For identification of Data Visualization keywords, Large Language Models (LLMs) such as GPT 3.5 and GPT 4 were utilized. Through prompt engineering involving diverse techniques, effective prompts were tailored for the domain-specific task. Techniques utilized included:",
+        style=text_style
+    ),
+    html.Ul([
+        html.Li("Few-shot learning"),
+        html.Li("Persona pattern"),
+        html.Li("Chain of thought prompting"),
+        html.Li("Retrieval Augmented Generation")
+    ], style=text_style),
+    html.P(
+        '''Following the identification of keywords, data aggregation and summarization were performed across various journals and publication years.    
+
+        The dataset view provides a comprehensive overview of the journals. Articles were scraped to extract figures and their corresponding metadata. Text processing was conducted on the metadata to generate word clouds.    
+               
+       Within the dashboard interface, users can filter by year, journal, and visualization keyword, enabling the visualization of keyword usage trends over different time periods. Efficient data callbacks and schemas were implemented to ensure the dashboard updates seamlessly.
+        ''',
+        style=text_style
+    ),
+], style={'margin-bottom': '20px', 'text-align': 'left'})
+
             ]),
 
         ], style={'padding': '20px', 'background-color': '#333'})  
