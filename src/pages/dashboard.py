@@ -16,23 +16,24 @@ keywords_to_exclude = []  # Add your keywords here
 df_1 = pd.read_csv("viz_1.csv").query("Journal != 'Total'")
 df_1 = df_1[~df_1["Keyword"].isin(keywords_to_exclude)]
 
-df_2 = pd.read_csv("updated_viz_2.csv")
+df_2 = pd.read_csv("updated_viz_2.csv").iloc[:, 1:]
 df_2 = df_2[~df_2["Keyword"].isin(keywords_to_exclude)]
 
 df_3 = pd.read_csv("viz_table.csv")
 df_3 = df_3[~df_3["Keyword"].isin(keywords_to_exclude)]
 
 # Calculate total yearly and proportion of articles with keyword
-df_2["yearly_total"] = df_2["DHQ_yearly_total"] + df_2["JCA_yearly_total"] + df_2["JOOCH_yearly_total"]
-df_2["proportion of articles with keyword"] = df_2["# of articles keyword DHQ"] + df_2["# of articles keyword JCA"] + df_2["# of articles keyword JOCCH"]
+df_2["yearly_total"] = df_2["DHQ_yearly_total"] + df_2["JCA_yearly_total"] + df_2["JOOCH_yearly_total"] +  df_2["DSH_yearly_total"]
+
+df_2["proportion of articles with keyword"] = round( (df_2["# of articles keyword DHQ"] + df_2["# of articles keyword JCA"] + df_2["# of articles keyword JOCCH"] + df_2["# of articles keyword DSH"]) / df_2["yearly_total"], 3)
 
 # Data cleaning for table
 df_table = df_2[['Keyword', 'Significance score', 'Rank', 'Year', '# of articles keyword DHQ',
-                 '# of articles keyword JCA', '# of articles keyword JOCCH']].rename(columns={
+                 '# of articles keyword JCA', '# of articles keyword JOCCH', '# of articles keyword DSH']].rename(columns={
     'Keyword': 'Keyword', 'Significance score': 'Significance score', 'Rank': 'Rank', 
     'Year': 'Year', '# of articles keyword DHQ': 'DHQ', '# of articles keyword JCA': 'JCA', 
-    '# of articles keyword JOCCH': 'JOCCH'
-})
+    '# of articles keyword JOCCH': 'JOCCH', '# of articles keyword DSH': 'DSH'
+}).drop_duplicates()
 
 # List of unique keywords
 unique_keywords = df_2['Keyword'].unique().tolist()
@@ -40,11 +41,13 @@ unique_keywords = df_2['Keyword'].unique().tolist()
 # Define dictionaries for journal data
 journal_yearly_dict = {'JCA' : 'JCA_yearly_total',
            'DHQ' : 'DHQ_yearly_total', 
-           'JOCCH' : 'JOOCH_yearly_total'}
+           'JOCCH' : 'JOOCH_yearly_total',
+                      'DSH' : 'DSH_yearly_total'}
 
-journal_keyword_dict = {'JCA' : '# of articles keyword DHQ',
-           'DHQ' : '# of articles keyword JCA', 
-           'JOCCH' : '# of articles keyword JOCCH'}
+journal_keyword_dict = {'JCA' : '# of articles keyword JCA',
+           'DHQ' : '# of articles keyword DHQ', 
+           'JOCCH' : '# of articles keyword JOCCH',
+                       'DSH' : '# of articles keyword DSH'}
 
 distinct_colors = [
     '#FF5733', '#FFC300', '#FFA500', '#B22222', '#008080',  # Reds, Yellows, Gold, Green, Teal
@@ -55,10 +58,10 @@ distinct_colors = [
     'lightpink', '#00BFFF', '#00FA9A', '#6495ED', '#008000'   # Orange Red, Deep Sky Blue, Medium Spring Green, Medium Purple, Fire Brick
 ]
 
-df_4 = df_2[["Year","DHQ_yearly_total", "JCA_yearly_total", "JOOCH_yearly_total", "yearly_total"]].drop_duplicates()
-df_4.columns = ["Year", "DHQ", "JCA", "JOCCH", "Total"]
+df_4 = df_2[["Year","DHQ_yearly_total", "JCA_yearly_total", "JOOCH_yearly_total", "DSH_yearly_total", "yearly_total"]].drop_duplicates()
+df_4.columns = ["Year", "DHQ", "JCA", "JOCCH", "DSH", "Total"]
 
-table_columns = ['Keyword','Significance score', 'Rank', 'DHQ', 'JCA', 'JOCCH' ]
+table_columns = ['Keyword','Significance score', 'Rank', 'DHQ', 'JCA', 'JOCCH' ,'DSH']
 
 header_style = {'textAlign': 'center',
                 'color': '#4a90e2',  # Blue color
@@ -100,13 +103,13 @@ layout = html.Div(
                         #Slider
                         dcc.RangeSlider(
                             id='year-range-slider',
-                            min=df_2['Year'].min(),
-                            max=df_2['Year'].max(),
+                            min=2007,
+                            max=2024,
                             step=1,
-                            value=[df_2['Year'].min(), df_2['Year'].max()],
+                            value=[2007, 2024],
                             marks={str(year): {'label': str(year), 
                                                'style': {'fontSize': '120%','color': 'white'}} 
-                                   for year in df_2['Year'].unique()}
+                                   for year in range(2007, 2025)}
 
 
                             ),
@@ -152,7 +155,9 @@ layout = html.Div(
                     data=[
                         {'label': 'DHQ', 'value': 'DHQ'},
                         {'label': 'JCA', 'value': 'JCA'},
-                        {'label': 'JOCCH', 'value': 'JOCCH'}
+                        {'label': 'JOCCH', 'value': 'JOCCH'},
+                        {'label': 'DSH', 'value': 'DSH'}
+
                     ],
                     clearable=True,
                     searchable=True,
@@ -248,6 +253,14 @@ layout = html.Div(
                                                                                'text-align': 'center',
                                                                                'border': '0.3px solid #FFFFFF', **drop_down,
                                                                                 'color':'white'})]
+                    ),                    
+                     # Card 4: DSH no. of articles
+                    html.Div(className='three columns', style={'width': '100%'}, 
+                             children=[html.Div(id='dsh-articles-card', style={'background-color': '#333333', 
+                                                                               'color': '#FFFFFF','padding' : '10px',
+                                                                               'text-align': 'center',
+                                                                               'border': '0.3px solid #FFFFFF', **drop_down,
+                                                                                'color':'white'})]
                     ),
                     # Card 4: JOCCH no. of articles
                     html.Div(className='three columns', style={'paddingRight': '1px', 'width': '100%'}, 
@@ -318,6 +331,9 @@ layout = html.Div(
 
                         'JOCCH': {'value': '''JOCCH:     
                         This signifies the number of times a specific keyword occurred in JOCCH in the selected year range.''',
+                                  'type': 'markdown'},
+                        'DSH': {'value': '''DSH:     
+                        This signifies the number of times a specific keyword occurred in DSH in the selected year range.''',
                                   'type': 'markdown'}}
                     ,
 
@@ -425,7 +441,7 @@ def update_table(selected_journals, selected_keywords, year_range):
                                                                                     'Significance score',
                                                                                     'Rank']).sum().reset_index()
 
-    selected_journals = selected_journals or ["DHQ", "JOCCH", "JCA"]
+    selected_journals = selected_journals or ["DHQ", "JOCCH", "JCA", "DSH"]
     final_df = final_df[['Keyword', 
                          'Significance score', 
                          'Rank'] + selected_journals].sort_values(by = "Rank")
@@ -446,14 +462,14 @@ def update_graph(selected_journals, selected_keywords, year_range):
     selected_keywords = selected_keywords or unique_keywords
     filtered_df = filtered_df[filtered_df["Keyword"].isin(selected_keywords)]
     
-    selected_journals = selected_journals or ["DHQ", "JOCCH", "JCA"]
+    selected_journals = selected_journals or ["DHQ", "JOCCH", "JCA", "DSH"]
     cols_selected = ["# of articles keyword "+ journal for journal in selected_journals]
     df_update = filtered_df.groupby(["Keyword", 
                                      "Significance score", 
                                      "Rank", 
                                      "Size"]).sum()[cols_selected].reset_index().fillna(0)
 
-    year_df = df_4[(df_4['Year'] >= year_range[0]) & (df_4['Year'] <= year_range[1])][["DHQ","JCA", "JOCCH"]].sum()
+    year_df = df_4[(df_4['Year'] >= year_range[0]) & (df_4['Year'] <= year_range[1])][["DHQ","JCA", "JOCCH", "DSH"]].sum()
         
     for journal in selected_journals:
         df_update[journal] = df_update["# of articles keyword " + journal] / year_df[journal]
@@ -541,7 +557,7 @@ def update_second_graph(selected_journals, selected_keywords, year_range ):
     temp_series_1 = pd.Series(dtype = float)
     temp_series_2 = pd.Series(dtype = float)
 
-    selected_journals = selected_journals or ["DHQ", "JOCCH", "JCA"]
+    selected_journals = selected_journals or ["DHQ", "JOCCH", "JCA", "DSH"]
     for i in selected_journals:
         temp_series_1 = temp_series_1.add(plot_df_final[journal_yearly_dict[i]], fill_value=0)
         temp_series_2 = temp_series_2.add(plot_df_final[journal_keyword_dict[i]], fill_value=0)
@@ -561,10 +577,10 @@ def update_second_graph(selected_journals, selected_keywords, year_range ):
                        size="Size", color="Keyword", size_max=30, opacity = 0.5, 
                        #text=plot_df_final['Keyword'],   --- Nice feature
                        hover_data = {'Keyword': True, 'dhq_total_keyword_count': False, 
-                                     'jca_total_keyword_count': False, 'jooch_total_keyword_count': False, 
+                                     'jca_total_keyword_count': False, 'jooch_total_keyword_count': False, 'dsh_total_keyword_count': False, 
                                      'total_keyword_count': False, 'Significance score': True, 
                                      'Rank': True, 'Year': True, '# of articles keyword DHQ': True, 
-                                     '# of articles keyword JCA': True, '# of articles keyword JOCCH': True, 
+                                     '# of articles keyword JCA': True,'# of articles keyword DSH': True, '# of articles keyword JOCCH': True, 
                                      'proportion of articles with keyword': False, 'Size' : False},
                     color_discrete_sequence = distinct_colors)
 
@@ -616,7 +632,10 @@ def update_second_graph(selected_journals, selected_keywords, year_range ):
 @callback(
     [Output('total-articles-card', 'children'),
      Output('dhq-articles-card', 'children'),
-     Output('jca-articles-card', 'children'),
+    Output('jca-articles-card', 'children'),
+
+        Output('dsh-articles-card', 'children'),
+
      Output('jocch-articles-card', 'children')],
     [Input('journal-dropdown', 'value'),
     Input('year-range-slider', 'value')]
@@ -625,12 +644,26 @@ def update_article_counts(selected_journals, year_range):
     
     filtered_df = df_4[(df_4['Year'] >= year_range[0]) & (df_4['Year'] <= year_range[1])]
     
-    selected_journals = selected_journals or ["DHQ", "JOCCH", "JCA"]
+    
+    selected_journals = selected_journals or ["DHQ", "JOCCH", "JCA", "DSH"]
+    
     dhq_articles = int(filtered_df["DHQ"].sum()) if "DHQ" in selected_journals else 0
+    
+    #if((year_range[0] == 2007) and ("DHQ" in selected_journals)):
+     #   dhq_articles+=13
+        
     jca_articles = int(filtered_df["JCA"].sum()) if "JCA" in selected_journals else 0
     jocch_articles = int(filtered_df["JOCCH"].sum()) if "JOCCH" in selected_journals else 0
-    total_articles = dhq_articles + jca_articles + jocch_articles
+        
+    #if((year_range[1] == 2024) and ("JOCCH" in selected_journals)):
+     #   jocch_articles+=16
     
-    return f'Total Articles: {total_articles}', f'DHQ Articles: {dhq_articles}', f'JCA Articles: {jca_articles}', f'JOCCH Articles: {jocch_articles}'
+    dsh_articles = int(filtered_df["DSH"].sum()) if "DSH" in selected_journals else 0
+    
+    
+
+    total_articles = dhq_articles + jca_articles + jocch_articles + dsh_articles
+    
+    return f'Total Abstracts: {total_articles}', f'DHQ Abstracts: {dhq_articles}', f'JCA Abstracts: {jca_articles}', f'DSH Abstracts: {dsh_articles}',  f'JOCCH Abstracts: {jocch_articles}'
 
 
