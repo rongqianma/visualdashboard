@@ -1,6 +1,6 @@
 # Visualization Keywords in Humanities Journal Articles
 
-Temporarily hosted on - [https://visualdashboard-40qr.onrender.com/](https://visualdashboard-40qr.onrender.com/)
+Temporarily hosted on - [https://dh-visualdashboard.onrender.com/](https://dh-visualdashboard.onrender.com/)
 
 ## About the Application
 
