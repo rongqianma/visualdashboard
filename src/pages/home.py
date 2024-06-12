@@ -40,7 +40,9 @@ layout = html.Div([
     html.Div([
         html.Div([
             html.H2('Introduction', style=intro_style),
-            html.P("Welcome to our platform. We're excited to have you here! Our project aims to understand the influence of data visualization in the field of Humanities research.", style=text_style),
+            html.P('''How do visuals speak, and what do they contribute to humanities scholarship? Visualization has long been recognized as a valuable device for knowledge discovery and communication in scientific research. Studies in science and technology show that visualization serves an epistemic role as "immutable mobiles," transmitting scientific findings and ideas across contexts, and indicating the disciplinarity and evolution of scientific fields. While visual technologies have become a convention in scientific research, their adoption in digital humanities (DH) scholarly communication is relatively recent.''', style=text_style), 
+            
+            html.P('''We still know little about the functions of visual languages in DH scholarship and their role in creating dynamic scholarly accounts. Understanding this will provide insights into how DH knowledge is built, dispersed, and communicated to wider audiences, and how DH evolves as an interdisciplinary research domain with a collaborative workforce. Our ongoing project takes an important first step by highlighting the evolution of visual concepts in DH and facilitating interactions with these concepts through the dashboard. ''', style=text_style),
 
             
             html.Div([
@@ -109,31 +111,21 @@ layout = html.Div([
 html.Div([
     html.Div([
         html.Div([
-            html.H2([html.A('Dataset View', href='/dataset', style=intro_style)]),
-            html.P("Descriptive statistics of articles, along with textual analysis of meta-data of figures.", style=text_style),
-                    html.P("Journals Included : DHQ, DSH, JCA", style={**text_style,'margin': '1px'}),
-                    html.P("Level of Analysis : Journal, Year, Figure", style={**text_style,'margin': '1px'}),
-                html.Ul([
-                    html.Li("Article Distribution"),
-                    html.Li("Figure Distribution"),
-                    html.Li("Word Cloud of figures text")
-                ], style=text_style),
+            html.H2([html.A('Dataset Page', href='/dataset', style=intro_style)]),
+            html.P("This page offers a descriptive statistical analysis of published DH articles and the figures included in them. The analysis covers journals such as DHQ, DSH, and JCA, examining data at the journal, year, and figure levels. The featured graphs highlight the distribution of articles and figures and the frequently used words in DH scholarship to describe visual concepts in the articles.", style=text_style)
+            
         ], style={'margin-bottom': '20px', 'text-align': 'left'})
-    ], style={'flex-basis': '50%', 'margin-right': '10px'}),  # This div will take 50% of the width
+    ], style={'flex-basis': '50%', 'margin-right': '70px', 'margin-left': '10px'}),  # This div will take 50% of the width
     
     html.Div([
         html.Div([
-            html.H2([html.A('Dashboard View', href='/dashboard', style=intro_style)]),
-            html.P("Filter article abstract data based upon Year, Journal & Data visualization keyword.", style=text_style),
-                html.P("Journals Included : DHQ, JOCCH, JCA", style={**text_style,'margin': '1px'}),
-                html.P("Level of Analysis : Journal, Year, Abstract", style={**text_style,'margin': '1px'}),
-                html.Ul([
-                html.Li("% of articles across each Journal with Data Visualization keyword"),
-                html.Li("% of articles across each Year with Data Visualization keyword"),
-                html.Li("Data table of Top Ranked Data Visualization keywords")
-                ], style=text_style)
+            html.H2([html.A('Dashboard Page', href='/dashboard', style=intro_style)]),
+            html.P('''The dashboard offers an interactive exploration of the evolution of key visual concepts featured in the DHQ, JOCCH, and JCA journals, allowing users to filter article abstract data by year, journal, and visual concepts.                    
+                   ''', style=text_style),
+            
+
         ], style={'margin-bottom': '20px', 'text-align': 'left'})
-    ], style={'flex-basis': '50%'}),  # This div will take 50% of the width
+    ], style={'flex-basis': '50%', 'margin-left': '70px', 'margin-right': '50px'}),  # This div will take 50% of the width
     
 ], style={'display': 'flex', 'padding': '20px', 'background-color': '#111'})
 
@@ -155,12 +147,9 @@ html.Div([
         html.Li("Retrieval Augmented Generation")
     ], style=text_style),
     html.P(
-        '''Following the identification of keywords, data aggregation and summarization were performed across various journals and publication years.    
-
-        The dataset view provides a comprehensive overview of the journals. Articles were scraped to extract figures and their corresponding metadata. Text processing was conducted on the metadata to generate word clouds.    
-               
-       Within the dashboard interface, users can filter by year, journal, and visualization keyword, enabling the visualization of keyword usage trends over different time periods. Efficient data callbacks and schemas were implemented to ensure the dashboard updates seamlessly.
-        ''',
+        ['''To identify key visual concepts, we utilized Large Language Models (LLMs) such as GPT-3.5 and GPT-4. Effective prompts were tailored for the domain-specific task using diverse techniques, including few-shot learning, persona patterns, chain of thought prompting, and retrieval-augmented generation. In addition to identifying and validating key concepts, we scraped, processed, analyzed, and visualized full-text articles published in the four DH journals, providing a statistical overview of our data corpus. This interface was built with Python dashboarding libraries like Dash/Plotly and MatPlotlib. The interface is currently hosted as a web service on the Render platform.  Iterations of the analysis and experiments are documented in
+        ''',        html.A('this Github repository', href='https://github.com/rongqianma/DH_KeyConcepts', target='_blank', style={'color': 'white'}),
+        ],
         style=text_style
     ),
 ], style={'margin-bottom': '20px', 'text-align': 'left'})
