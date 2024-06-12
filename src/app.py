@@ -10,17 +10,19 @@ app = Dash(__name__, use_pages=True)
 server = app.server
 
 
+
+
 header_style = {
                 'textAlign': 'center',
                 #'color': '#4a90e2',  # Blue color
                 'color': 'white',  # Blue color
 
-                'fontSize': '24px',  # Larger font size
+                'fontSize': '27px',  # Larger font size
                 'fontFamily': 'Arial, sans-serif',  # Elegant font family
                 'fontWeight': 'bold',  # Bold text
                 'letterSpacing': '1px',  # Spacing between letters
-                'marginBottom': '10px',  # Add bottom margin for spacing
-                'marginTop': '10px',  # Add bottom margin for spacing
+                'marginBottom': '30px',  # Add bottom margin for spacing
+                'marginTop': '30px',  # Add bottom margin for spacing
 
             }
 
@@ -33,7 +35,7 @@ app.layout = html.Div([
             html.Div(className='twelve columns',
                 #style = {'textAlign': 'center'},
                 children = [
-                    html.H2('KEYWORD ANALYSIS ON HUMANITIES JOURNAL ARTICLES',  
+                    html.H2('Computational Analysis of the Visual Key Concepts in Digital Humanities Research Communication',  
                         style = header_style)
                          ]
         )]),
@@ -75,8 +77,6 @@ html.Div(
     ,
     dash.page_container
 ])
-
-
 
 if __name__ == '__main__':
     app.run(debug=True)
