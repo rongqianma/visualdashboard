@@ -65,7 +65,7 @@ html.Div(
         'flexWrap': 'wrap',
         'background-color': '#2b2b2b',
         'color': 'white',
-        'padding-bottom': '5px',
+        'padding-bottom': '15px',
         'padding-top': '5px',
         'justify-content': 'center', 
         # Center align the links
