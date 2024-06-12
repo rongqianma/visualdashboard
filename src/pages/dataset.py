@@ -68,7 +68,7 @@ html.Div([
 
         html.Div([
             html.Div([
-                html.H2('Word Clouds by Journal', style=heading_style),
+                html.H2('Figure Descriptions in the Journals', style=heading_style),
                 
                 html.Div([
 
