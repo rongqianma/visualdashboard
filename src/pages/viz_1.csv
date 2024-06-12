@@ -1,0 +1,157 @@
+,Keyword,Significance,Journal,# of Articles,% of articles,Rank,Size
+0,visualization,1.0,DSH,36,0.031,2,49
+1,data,1.0,DSH,31,0.027,1,50
+2,analysis,0.95,DSH,34,0.029,3,48
+3,computational tools,0.85,DSH,23,0.02,4,47
+4,information,0.85,DSH,3,0.003,5,46
+5,application,0.85,DSH,7,0.006,6,45
+6,clustering,0.85,DSH,3,0.003,7,44
+7,correlation,0.85,DSH,2,0.002,8,43
+8,interface,0.8,DSH,15,0.013,11,40
+9,model,0.8,DSH,9,0.008,9,42
+10,rendering,0.8,DSH,0,0.0,18,33
+11,shape,0.8,DSH,1,0.001,16,35
+12,table,0.8,DSH,0,0.0,17,34
+13,text mining,0.8,DSH,4,0.003,15,36
+14,user experience,0.8,DSH,8,0.007,12,39
+15,frequency,0.8,DSH,2,0.002,14,37
+16,coding,0.8,DSH,4,0.003,19,32
+17,distribution,0.8,DSH,2,0.002,13,38
+18,classification,0.8,DSH,5,0.004,10,41
+19,annotation,0.75,DSH,8,0.007,20,31
+20,topic modeling,0.75,DSH,5,0.004,21,30
+21,scale,0.7,DSH,3,0.003,32,19
+22,software,0.7,DSH,8,0.007,24,27
+23,technology,0.7,DSH,15,0.013,25,26
+24,prototype,0.7,DSH,5,0.004,31,20
+25,trend,0.7,DSH,2,0.002,33,18
+26,variable,0.7,DSH,1,0.001,38,13
+27,quantitative methods,0.7,DSH,0,0.0,34,17
+28,color,0.7,DSH,1,0.001,37,14
+29,point clouds,0.7,DSH,0,0.0,39,12
+30,metadata,0.7,DSH,10,0.009,23,28
+31,mapping,0.7,DSH,2,0.002,35,16
+32,machine learning,0.7,DSH,8,0.007,26,25
+33,interactivity,0.7,DSH,4,0.003,29,22
+34,design,0.7,DSH,9,0.008,27,24
+35,display,0.7,DSH,5,0.004,36,15
+36,image,0.7,DSH,9,0.008,28,23
+37,feature,0.7,DSH,4,0.003,30,21
+38,algorithm,0.7,DSH,7,0.006,22,29
+39,visualization,1.0,DHQ,45,0.063,2,49
+40,data,1.0,DHQ,39,0.054,1,50
+41,analysis,0.95,DHQ,87,0.122,3,48
+42,computational tools,0.85,DHQ,29,0.041,4,47
+43,information,0.85,DHQ,17,0.024,5,46
+44,application,0.85,DHQ,13,0.018,6,45
+45,clustering,0.85,DHQ,20,0.028,7,44
+46,correlation,0.85,DHQ,13,0.018,8,43
+47,interface,0.8,DHQ,13,0.018,11,40
+48,model,0.8,DHQ,31,0.043,9,42
+49,rendering,0.8,DHQ,0,0.0,18,33
+50,shape,0.8,DHQ,1,0.001,16,35
+51,table,0.8,DHQ,7,0.01,17,34
+52,text mining,0.8,DHQ,9,0.013,15,36
+53,user experience,0.8,DHQ,4,0.006,12,39
+54,frequency,0.8,DHQ,21,0.029,14,37
+55,coding,0.8,DHQ,2,0.003,19,32
+56,distribution,0.8,DHQ,20,0.028,13,38
+57,classification,0.8,DHQ,35,0.049,10,41
+58,annotation,0.75,DHQ,29,0.041,20,31
+59,topic modeling,0.75,DHQ,5,0.007,21,30
+60,scale,0.7,DHQ,4,0.006,32,19
+61,software,0.7,DHQ,39,0.054,24,27
+62,technology,0.7,DHQ,26,0.036,25,26
+63,prototype,0.7,DHQ,6,0.008,31,20
+64,trend,0.7,DHQ,9,0.013,33,18
+65,variable,0.7,DHQ,7,0.01,38,13
+66,quantitative methods,0.7,DHQ,9,0.013,34,17
+67,color,0.7,DHQ,0,0.0,37,14
+68,point clouds,0.7,DHQ,0,0.0,39,12
+69,metadata,0.7,DHQ,22,0.031,23,28
+70,mapping,0.7,DHQ,5,0.007,35,16
+71,machine learning,0.7,DHQ,21,0.029,26,25
+72,interactivity,0.7,DHQ,13,0.018,29,22
+73,design,0.7,DHQ,16,0.022,27,24
+74,display,0.7,DHQ,3,0.004,36,15
+75,image,0.7,DHQ,13,0.018,28,23
+76,feature,0.7,DHQ,14,0.02,30,21
+77,algorithm,0.7,DHQ,41,0.057,22,29
+78,visualization,1.0,JCA,3,0.02,2,49
+79,data,1.0,JCA,7,0.046,1,50
+80,analysis,0.95,JCA,10,0.066,3,48
+81,computational tools,0.85,JCA,13,0.086,4,47
+82,information,0.85,JCA,4,0.026,5,46
+83,application,0.85,JCA,0,0.0,6,45
+84,clustering,0.85,JCA,0,0.0,7,44
+85,correlation,0.85,JCA,2,0.013,8,43
+86,interface,0.8,JCA,0,0.0,11,40
+87,model,0.8,JCA,1,0.007,9,42
+88,rendering,0.8,JCA,0,0.0,18,33
+89,shape,0.8,JCA,0,0.0,16,35
+90,table,0.8,JCA,1,0.007,17,34
+91,text mining,0.8,JCA,1,0.007,15,36
+92,user experience,0.8,JCA,1,0.007,12,39
+93,frequency,0.8,JCA,1,0.007,14,37
+94,coding,0.8,JCA,0,0.0,19,32
+95,distribution,0.8,JCA,2,0.013,13,38
+96,classification,0.8,JCA,1,0.007,10,41
+97,annotation,0.75,JCA,4,0.026,20,31
+98,topic modeling,0.75,JCA,2,0.013,21,30
+99,scale,0.7,JCA,2,0.013,32,19
+100,software,0.7,JCA,0,0.0,24,27
+101,technology,0.7,JCA,0,0.0,25,26
+102,prototype,0.7,JCA,0,0.0,31,20
+103,trend,0.7,JCA,0,0.0,33,18
+104,variable,0.7,JCA,0,0.0,38,13
+105,quantitative methods,0.7,JCA,2,0.013,34,17
+106,color,0.7,JCA,0,0.0,37,14
+107,point clouds,0.7,JCA,0,0.0,39,12
+108,metadata,0.7,JCA,2,0.013,23,28
+109,mapping,0.7,JCA,0,0.0,35,16
+110,machine learning,0.7,JCA,5,0.033,26,25
+111,interactivity,0.7,JCA,1,0.007,29,22
+112,design,0.7,JCA,0,0.0,27,24
+113,display,0.7,JCA,0,0.0,36,15
+114,image,0.7,JCA,1,0.007,28,23
+115,feature,0.7,JCA,1,0.007,30,21
+116,algorithm,0.7,JCA,0,0.0,22,29
+117,visualization,1.0,JOCCH,25,0.048,2,49
+118,data,1.0,JOCCH,38,0.074,1,50
+119,analysis,0.95,JOCCH,34,0.066,3,48
+120,computational tools,0.85,JOCCH,6,0.012,4,47
+121,information,0.85,JOCCH,17,0.033,5,46
+122,application,0.85,JOCCH,15,0.029,6,45
+123,clustering,0.85,JOCCH,6,0.012,7,44
+124,correlation,0.85,JOCCH,1,0.002,8,43
+125,interface,0.8,JOCCH,15,0.029,11,40
+126,model,0.8,JOCCH,35,0.068,9,42
+127,rendering,0.8,JOCCH,7,0.014,18,33
+128,shape,0.8,JOCCH,9,0.017,16,35
+129,table,0.8,JOCCH,1,0.002,17,34
+130,text mining,0.8,JOCCH,1,0.002,15,36
+131,user experience,0.8,JOCCH,30,0.058,12,39
+132,frequency,0.8,JOCCH,2,0.004,14,37
+133,coding,0.8,JOCCH,0,0.0,19,32
+134,distribution,0.8,JOCCH,4,0.008,13,38
+135,classification,0.8,JOCCH,9,0.017,10,41
+136,annotation,0.75,JOCCH,13,0.025,20,31
+137,topic modeling,0.75,JOCCH,0,0.0,21,30
+138,scale,0.7,JOCCH,6,0.012,32,19
+139,software,0.7,JOCCH,10,0.019,24,27
+140,technology,0.7,JOCCH,16,0.031,25,26
+141,prototype,0.7,JOCCH,8,0.016,31,20
+142,trend,0.7,JOCCH,2,0.004,33,18
+143,variable,0.7,JOCCH,0,0.0,38,13
+144,quantitative methods,0.7,JOCCH,1,0.002,34,17
+145,color,0.7,JOCCH,9,0.017,37,14
+146,point clouds,0.7,JOCCH,7,0.014,39,12
+147,metadata,0.7,JOCCH,25,0.048,23,28
+148,mapping,0.7,JOCCH,5,0.01,35,16
+149,machine learning,0.7,JOCCH,11,0.021,26,25
+150,interactivity,0.7,JOCCH,16,0.031,29,22
+151,design,0.7,JOCCH,17,0.033,27,24
+152,display,0.7,JOCCH,3,0.006,36,15
+153,image,0.7,JOCCH,17,0.033,28,23
+154,feature,0.7,JOCCH,4,0.008,30,21
+155,algorithm,0.7,JOCCH,20,0.039,22,29

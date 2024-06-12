@@ -1,0 +1,40 @@
+,Keyword,# of articles DSH,# of articles DHQ,# of articles JCA,# of articles JOCCH,Total,Significance,Rank
+0,data,31,39,7,38,115,1.0,1
+1,visualization,36,45,3,25,109,1.0,2
+2,analysis,34,87,10,34,165,0.95,3
+3,computational tools,23,29,13,6,71,0.85,4
+4,information,3,17,4,17,41,0.85,5
+5,application,7,13,0,15,35,0.85,6
+6,clustering,3,20,0,6,29,0.85,7
+7,correlation,2,13,2,1,18,0.85,8
+8,model,9,31,1,35,76,0.8,9
+9,classification,5,35,1,9,50,0.8,10
+10,interface,15,13,0,15,43,0.8,11
+11,user experience,8,4,1,30,43,0.8,12
+12,distribution,2,20,2,4,28,0.8,13
+13,frequency,2,21,1,2,26,0.8,14
+14,text mining,4,9,1,1,15,0.8,15
+15,shape,1,1,0,9,11,0.8,16
+16,table,0,7,1,1,9,0.8,17
+17,rendering,0,0,0,7,7,0.8,18
+18,coding,4,2,0,0,6,0.8,19
+19,annotation,8,29,4,13,54,0.75,20
+20,topic modeling,5,5,2,0,12,0.75,21
+21,algorithm,7,41,0,20,68,0.7,22
+22,metadata,10,22,2,25,59,0.7,23
+23,software,8,39,0,10,57,0.7,24
+24,technology,15,26,0,16,57,0.7,25
+25,machine learning,8,21,5,11,45,0.7,26
+26,design,9,16,0,17,42,0.7,27
+27,image,9,13,1,17,40,0.7,28
+28,interactivity,4,13,1,16,34,0.7,29
+29,feature,4,14,1,4,23,0.7,30
+30,prototype,5,6,0,8,19,0.7,31
+31,scale,3,4,2,6,15,0.7,32
+32,trend,2,9,0,2,13,0.7,33
+33,quantitative methods,0,9,2,1,12,0.7,34
+34,mapping,2,5,0,5,12,0.7,35
+35,display,5,3,0,3,11,0.7,36
+36,color,1,0,0,9,10,0.7,37
+37,variable,1,7,0,0,8,0.7,38
+38,point clouds,0,0,0,7,7,0.7,39
