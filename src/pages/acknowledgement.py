@@ -34,9 +34,9 @@ layout = html.Div([
                 html.H2('Team & Collaborators', style=heading_style),
                 html.Div([
                     html.Img(src='assets/prof_rongqian_ma.png', style={'width': '220px', 'height': '300px', 'margin-right': '10px'}),                    html.Img(src= 'assets/prof_li.png', style={'width': '220px', 'height': '300px', 'margin-right': '10px'}),
-                    html.Img(src= 'assets/ranvir_singh.png', style={'width': '220px', 'height': '300px', 'margin-right': '10px'}),
-                    html.Img(src= 'assets/sagar_prabhu.png', style={'width': '220px', 'height': '300px', 'margin-right': '10px'}),
                     html.Img(src= 'assets/amar_ananth.png', style={'width': '220px', 'height': '300px', 'margin-right': '10px'}),
+                    html.Img(src= 'assets/sagar_prabhu.png', style={'width': '220px', 'height': '300px', 'margin-right': '10px'}),
+                    html.Img(src= 'assets/ranvir_singh.png', style={'width': '220px', 'height': '300px', 'margin-right': '10px'}),
 
                 ], style={'display': 'flex', 'align-items': 'center'}),
 
