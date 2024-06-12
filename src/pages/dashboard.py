@@ -50,18 +50,20 @@ journal_keyword_dict = {'JCA' : '# of articles keyword JCA',
                        'DSH' : '# of articles keyword DSH'}
 
 distinct_colors = [
-    '#FF5733', '#FFC300', '#FFA500', '#B22222', '#008080',  # Reds, Yellows, Gold, Green, Teal
+    '#FF5733', '#FFA500', '#B22222', '#008080',  # Reds, Yellows, Gold, Green, Teal
     '#0000FF', 'lightgreen', '#FF00FF', '#808080', '#000000',  # Blue, Purple, Magenta, Gray, Black
     '#00FF00', '#00FFFF', 'white', '#6A5ACD', 'darkred',  # Lime, Cyan, Dark Blue, Slate Blue, Deep Pink
     '#FF69B4', 'red', 'yellow', '#4682B4', '#556B2F',  # Hot Pink, Tomato, Light Salmon, Steel Blue, Dark Olive Green
     '#8A2BE2', '#8B008B', '#000080', '#4B0082', 'lightblue',  # Blue Violet, Dark Magenta, Navy, Indigo, Chartreuse
-    'lightpink', '#00BFFF', '#00FA9A', '#6495ED', '#008000'   # Orange Red, Deep Sky Blue, Medium Spring Green, Medium Purple, Fire Brick
+    'lightpink', '#00BFFF', '#00FA9A', '#6495ED', '#008000',  # Orange Red, Deep Sky Blue, Medium Spring Green, Medium Purple, Fire Brick
+    '#800080', '#A52A2A', '#5F9EA0', '#D2691E', '#FF1493',  # Purple, Brown, Cadet Blue, Chocolate, Deep Pink
+    '#7FFF00', '#BDB76B', '#8FBC8F', '#FF4500', '#00FF7F', '#FFC300'  # Crimson, Turquoise, Dark Red, Spring Green, Green Yellow
 ]
 
 df_4 = df_2[["Year","DHQ_yearly_total", "JCA_yearly_total", "JOOCH_yearly_total", "DSH_yearly_total", "yearly_total"]].drop_duplicates()
 df_4.columns = ["Year", "DHQ", "JCA", "JOCCH", "DSH", "Total"]
 
-table_columns = ['Keyword','Significance score', 'Rank', 'DHQ', 'JCA', 'JOCCH' ,'DSH']
+table_columns = ['Visualization Keyword','Significance score', 'Rank', 'DHQ', 'JCA', 'JOCCH' ,'DSH']
 
 header_style = {'textAlign': 'center',
                 'color': '#4a90e2',  # Blue color
@@ -207,7 +209,7 @@ layout = html.Div(
                     
                     children=[
                 dmc.MultiSelect(
-                    label="Select Keyword",
+                    label="Select Visualization Keyword",
                     description="You can select multiple keywords ",
                     id='keyword-dropdown',
                     data=[
@@ -218,7 +220,7 @@ layout = html.Div(
                     nothingFound="No options found",
 
                     #multi=True,
-                    placeholder="Select Data Visualization Concept",
+                    placeholder="Select Visualization Keyword",
                     style={'margin-bottom' : '5px', 'color':'red'})])]),
             
 
@@ -307,16 +309,16 @@ layout = html.Div(
                     data=[],
                     columns=[{'name': col, 'id': col} for col in table_columns],
                     tooltip_header={
-                        'Keyword': {'value': '''Keyword: Top 30     
+                        'Visualization Keyword': {'value': '''Visualization Keyword:      
                         The data visualization keyword is identified from article abstracts. 
-                        OpenAI GPT 3.5 was used in order to identify relevant keywords.''', 'type': 'markdown'},
+                        OpenAI GPT 3.5 was used in order to identify relevant concepts.''', 'type': 'markdown'},
 
                         'Significance score': {'value': '''Significance score: [0,1]     
                         The significance score is computed using OpenAI GPT 4. 
                         Higher the value, the more relevant it is in the context of data visualization.''', 'type': 'markdown'},
 
                         'Rank': {'value': '''Rank: [1,30]    
-                        Computed based on a keyword\'s significance score and its occurrence across all journals. 
+                        Computed based on a visualizaion keyword\'s significance score and its occurrence across all journals. 
                         If two keywords have the same significance score, the keyword that occurs more frequently 
                         has a lower rank.''', 'type': 'markdown'}
                         ,
@@ -442,7 +444,12 @@ def update_table(selected_journals, selected_keywords, year_range):
                                                                                     'Rank']).sum().reset_index()
 
     selected_journals = selected_journals or ["DHQ", "JOCCH", "JCA", "DSH"]
-    final_df = final_df[['Keyword', 
+    
+
+    
+    final_df.rename(columns={"Keyword": "Visualization Keyword"}, inplace=True)
+    
+    final_df = final_df[['Visualization Keyword', 
                          'Significance score', 
                          'Rank'] + selected_journals].sort_values(by = "Rank")
     return final_df.to_dict('records')
@@ -507,7 +514,7 @@ def update_graph(selected_journals, selected_keywords, year_range):
     fig.update_yaxes(title_text="Digital Humanities Journal",
                      showgrid=False)
     
-    fig.update_xaxes(title_text="% of Articles with keyword",
+    fig.update_xaxes(title_text="% of Articles with Visualization Keyword",
                      tickformat='.2%', 
                      showgrid=True,
                      gridcolor='#404040',
